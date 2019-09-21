@@ -1,0 +1,30 @@
+﻿
+@{
+    ViewBag.Title = "ServicesMenu";
+}
+
+<h2>Services Menu</h2>
+<div class="card-group">
+    <!--Services by location card-->
+    <div class="card">
+        <img src="~/Content/img/Locations.png" class="card-img-top" alt="A black and white image depciting a map pointer.">
+        <div class="card-body">
+            <h3 class="card-title">Services by location</h3>
+            <p class="card-text">Services are found by which town center they are closes to. Town centers are Belconnen, Woden, Tuggeranong, Gungahlin, and Civic.</p>
+        </div>
+        <a type="button" class="btn btn-primary btn-lg btn-block" href="~/Services/ServicesLocation">Go to Service Locations</a>
+    </div>
+    <!--Service by type card-->
+    <div class="card">
+        <img src="~/Content/img/Types.png" class="card-img-top" alt="A black and white image depicitng four squares, with the tope left darker">
+        <div class="card-body">
+            <h3 class="card-title">Services by type</h3>
+            <p class="card-text">Find services, by their type. Types include inclusion and diversity, jobs and employment, meals and food, shelter, legal and financial, health and wellbeing, and family and community.</p>
+        </div>
+        <a type="button" class="btn btn-primary btn-lg btn-block" href="~/Services/ServicesType">Go to Service Types</a>
+    </div>
+</div>
+<hr />
+<a type="button" class="btn btn-primary btn-lg btn-block" href="~/Services">Return to home page</a>
+
+

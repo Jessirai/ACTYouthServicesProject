@@ -14,11 +14,287 @@ namespace ACTYouthServicesWeb.Controllers
     {
         private ACTYouthServiceDatabaseEntities1 db = new ACTYouthServiceDatabaseEntities1();
 
-        // GET: Services
-        public ActionResult Index()
+        // GET: Services, sorted by search term
+        
+            public ViewResult Index(string sortOrder, string searchString)
+            {
+                ViewBag.NameSortParm = String.IsNullOrEmpty(sortOrder) ? "Name" : "";
+                ViewBag.DateSortParm = sortOrder == "Name" ? "Description" : "ServiceID";
+                var Services = from s in db.Services
+                               select s;
+                if (!String.IsNullOrEmpty(searchString))
+                {
+                    Services = Services.Where(s => s.Description.Contains(searchString)
+                                           || s.Name.Contains(searchString));
+                }
+            
+                switch (sortOrder)
+                {
+                    case "Name":
+                        Services = Services.OrderByDescending(s => s.Description);
+                        break;
+                    case "Description":
+                        Services = Services.OrderBy(s => s.ServiceID);
+                        break;
+                    case "ServiceID":
+                        Services = Services.OrderByDescending(s => s.ServiceID);
+                        break;
+                    default:
+                        Services = Services.OrderBy(s => s.Description);
+                        break;
+                }
+
+                return View(Services.ToList());
+            }
+        /*ServicesMenu Page*/
+            public ActionResult ServicesMenu()
+            {
+                ViewBag.Message = "Services Menu Page.";
+
+                return View();
+            }
+        /*ServicesType Page*/
+            public ActionResult ServicesType()
+            {
+                ViewBag.Message = "Services Type Page.";
+
+                return View();
+            }
+        /*ServicesLocation Page*/
+            public ActionResult ServicesLocation()
+            {
+                ViewBag.Message = "Services Location Page.";
+
+                return View();
+            }
+        /*belconnen services*/
+        public ActionResult Belconnen()
         {
-            return View(db.Services.ToList());
+            ViewBag.Message = "Belconnen Services Page.";
+
+            return View();
         }
+        /*woden services*/
+        public ActionResult Woden()
+        {
+            ViewBag.Message = "Woden Services Page.";
+
+            return View();
+        }
+        /*gungahlin services*/
+        public ActionResult Gungahlin()
+        {
+            ViewBag.Message = "Gungahlin Services Page.";
+
+            return View();
+        }
+        /*tuggeranong services*/
+        public ActionResult Tuggeranong()
+        {
+            ViewBag.Message = "Tuggeranong Services Page.";
+
+            return View();
+        }
+        /*civic services*/
+        public ActionResult Civic()
+        {
+            ViewBag.Message = "Civic Services Page.";
+
+            return View();
+        }
+        /*Get meals and food services*/
+        public ActionResult MealsFood()
+        {
+            ViewBag.Message = "Meals and food page.";
+
+            return View();
+        }
+        /*Get inlcusion and diversity services*/
+        public ActionResult InclusionDiversity()
+        {
+            ViewBag.Message = "Inclusion and diversity services.";
+
+            return View();
+        }
+        /*Get health and wellbeing services*/
+        public ActionResult HealthWellbeing()
+        {
+            ViewBag.Message = "Health and Wellbeing page";
+
+            return View();
+        }
+        /*Get jobs and employment services*/
+        public ActionResult JobsEmployment()
+        {
+            ViewBag.Message = "Jobs and employment services";
+
+            return View();
+        }
+        //GET: Shelter Services
+        public ViewResult Shelter(string sortOrder, string searchString)
+            {
+                ViewBag.NameSortParm = String.IsNullOrEmpty(sortOrder) ? "Name" : "";
+                ViewBag.DateSortParm = sortOrder == "Name" ? "Description" : "ServiceID";
+                var Services = from s in db.Services
+                               select s;
+                if (!String.IsNullOrEmpty(searchString))
+                {
+                    Services = Services.Where(s => s.Location.Contains(searchString)
+                                           || s.Name.Contains(searchString));
+                }
+
+                switch (sortOrder)
+                {
+                    case "Name":
+                        Services = Services.OrderByDescending(s => s.Description);
+                        break;
+                    case "Description":
+                        Services = Services.OrderBy(s => s.ServiceID);
+                        break;
+                    case "ServiceID":
+                        Services = Services.OrderByDescending(s => s.ServiceID);
+                        break;
+                    default:
+                        Services = Services.OrderBy(s => s.Description);
+                        break;
+                }
+
+                return View(Services.ToList());
+            }
+        //GET: Health Services
+        public ViewResult Health(string sortOrder, string searchString)
+        {
+            ViewBag.NameSortParm = String.IsNullOrEmpty(sortOrder) ? "Name" : "";
+            ViewBag.DateSortParm = sortOrder == "Name" ? "Description" : "ServiceID";
+            var Services = from s in db.Services
+                           select s;
+            if (!String.IsNullOrEmpty(searchString))
+            {
+                Services = Services.Where(s => s.Location.Contains(searchString)
+                                       || s.Name.Contains(searchString));
+            }
+
+            switch (sortOrder)
+            {
+                case "Name":
+                    Services = Services.OrderByDescending(s => s.Description);
+                    break;
+                case "Description":
+                    Services = Services.OrderBy(s => s.ServiceID);
+                    break;
+                case "ServiceID":
+                    Services = Services.OrderByDescending(s => s.ServiceID);
+                    break;
+                default:
+                    Services = Services.OrderBy(s => s.Description);
+                    break;
+            }
+
+            return View(Services.ToList());
+        }
+        //GET: Food Services
+        public ViewResult Food(string sortOrder, string searchString)
+        {
+            ViewBag.NameSortParm = String.IsNullOrEmpty(sortOrder) ? "Name" : "";
+            ViewBag.DateSortParm = sortOrder == "Name" ? "Description" : "ServiceID";
+            var Services = from s in db.Services
+                           select s;
+            if (!String.IsNullOrEmpty(searchString))
+            {
+                Services = Services.Where(s => s.Location.Contains(searchString)
+                                       || s.Name.Contains(searchString));
+            }
+
+            switch (sortOrder)
+            {
+                case "Name":
+                    Services = Services.OrderByDescending(s => s.Description);
+                    break;
+                case "Description":
+                    Services = Services.OrderBy(s => s.ServiceID);
+                    break;
+                case "ServiceID":
+                    Services = Services.OrderByDescending(s => s.ServiceID);
+                    break;
+                default:
+                    Services = Services.OrderBy(s => s.Description);
+                    break;
+            }
+
+            return View(Services.ToList());
+        }
+        //GET: Legal Services
+        public ViewResult LegalFinancial(string sortOrder, string searchString)
+        {
+            ViewBag.NameSortParm = String.IsNullOrEmpty(sortOrder) ? "Name" : "";
+            ViewBag.DateSortParm = sortOrder == "Name" ? "Description" : "ServiceID";
+            var Services = from s in db.Services
+                           select s;
+            if (!String.IsNullOrEmpty(searchString))
+            {
+                Services = Services.Where(s => s.Location.Contains(searchString)
+                                       || s.Name.Contains(searchString));
+            }
+
+            switch (sortOrder)
+            {
+                case "Name":
+                    Services = Services.OrderByDescending(s => s.Description);
+                    break;
+                case "Description":
+                    Services = Services.OrderBy(s => s.ServiceID);
+                    break;
+                case "ServiceID":
+                    Services = Services.OrderByDescending(s => s.ServiceID);
+                    break;
+                default:
+                    Services = Services.OrderBy(s => s.Description);
+                    break;
+            }
+
+            return View(Services.ToList());
+        }
+        //GET: Family Services
+        public ViewResult FamilyCommunity(string sortOrder, string searchString)
+        {
+            ViewBag.NameSortParm = String.IsNullOrEmpty(sortOrder) ? "Name" : "";
+            ViewBag.DateSortParm = sortOrder == "Name" ? "Description" : "ServiceID";
+            var Services = from s in db.Services
+                           select s;
+            if (!String.IsNullOrEmpty(searchString))
+            {
+                Services = Services.Where(s => s.Location.Contains(searchString)
+                                       || s.Name.Contains(searchString));
+            }
+
+            switch (sortOrder)
+            {
+                case "Name":
+                    Services = Services.OrderByDescending(s => s.Description);
+                    break;
+                case "Description":
+                    Services = Services.OrderBy(s => s.ServiceID);
+                    break;
+                case "ServiceID":
+                    Services = Services.OrderByDescending(s => s.ServiceID);
+                    break;
+                default:
+                    Services = Services.OrderBy(s => s.Description);
+                    break;
+            }
+
+            return View(Services.ToList());
+        }
+        /*Navigate to the page to show homelessness serivces directories for other states and territories*/
+        public ActionResult Interstate()
+        {
+            ViewBag.Message = "Interstate directories.";
+
+            return View();
+        }
+
+
+
 
         // GET: Services/Details/5
         public ActionResult Details(int? id)

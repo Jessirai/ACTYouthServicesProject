@@ -22,3 +22,33 @@ select,
 textarea {
     max-width: 280px;
 }
+/*set styles for cards*/
+.card{
+    display:inline-block;
+    width:250px;
+    border:1px solid #CCCCCC;
+    border-radius:10px;
+    align-content:center;
+    vertical-align:top;
+    margin:3px;
+}
+.btn-block{
+    display:block;
+    font-size:14px;
+
+}
+.card-body{
+    height:150px;
+    display:block;
+    margin:10px;
+}
+.card-img-top{
+    width:230px;
+    height:210px;
+    margin:10px 10px 0 10px;
+    border-radius:10px;
+}
+.card-title{
+    text-align:center;
+}
+
