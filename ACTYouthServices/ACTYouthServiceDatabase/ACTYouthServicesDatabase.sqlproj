@@ -64,4 +64,7 @@
   <ItemGroup>
     <RefactorLog Include="ACTYouthServicesDatabase.refactorlog" />
   </ItemGroup>
+  <ItemGroup>
+    <PostDeploy Include="Script.PostDeployment1.sql" />
+  </ItemGroup>
 </Project>
