@@ -17,13 +17,27 @@ namespace ACTYouthServicesWeb.Models
         public int ServiceID { get; set; }
         public string Name { get; set; }
         public string Description { get; set; }
-        public decimal Latitude { get; set; }
+        public string Phone { get; set; }
+        public string Address { get; set; }
         public decimal Longitude { get; set; }
+        public decimal Latitude { get; set; }
+        public string Email { get; set; }
+        public string OpeningHours { get; set; }
+        public bool Shelter { get; set; }
+        public bool Food { get; set; }
+        public bool Job { get; set; }
+        public bool Family { get; set; }
+        public bool Legal { get; set; }
+        public bool Diversity { get; set; }
+        public bool Health { get; set; }
         public string Location { get; set; }
-        public Nullable<bool> Shelter { get; set; }
-        public Nullable<bool> Health { get; set; }
-        public Nullable<bool> Food { get; set; }
-        public Nullable<bool> Legal { get; set; }
-        public Nullable<bool> Family { get; set; }
+        public string Accessability { get; set; }
+        public string Clientele { get; set; }
+        public string Referral { get; set; }
+        public Nullable<int> MinAge { get; set; }
+        public Nullable<int> MaxAge { get; set; }
+        public string Cost { get; set; }
+        public string Languages { get; set; }
+        public string Website { get; set; }
     }
 }

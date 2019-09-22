@@ -4,61 +4,76 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-    <Schema Namespace="ACTYouthServiceDatabaseModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
-        <EntityType Name="__RefactorLog">
-          <Key>
-            <PropertyRef Name="OperationKey" />
-          </Key>
-          <Property Name="OperationKey" Type="uniqueidentifier" Nullable="false" />
-        </EntityType>
+      <Schema Namespace="ACTYouthServicesDatabaseModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="Service">
           <Key>
             <PropertyRef Name="ServiceID" />
           </Key>
           <Property Name="ServiceID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="Name" Type="nchar" MaxLength="10" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="Description" Type="nvarchar(max)" />
-          <Property Name="Latitude" Type="decimal" Precision="9" Scale="6" Nullable="false" />
+          <Property Name="Phone" Type="char" MaxLength="10" />
+          <Property Name="Address" Type="nvarchar(max)" />
           <Property Name="Longitude" Type="decimal" Precision="9" Scale="6" Nullable="false" />
-          <Property Name="Location" Type="nchar" MaxLength="10" Nullable="false" />
-          <Property Name="Shelter" Type="bit" />
-          <Property Name="Health" Type="bit" />
-          <Property Name="Food" Type="bit" />
-          <Property Name="Legal" Type="bit" />
-          <Property Name="Family" Type="bit" />
+          <Property Name="Latitude" Type="decimal" Precision="9" Scale="6" Nullable="false" />
+          <Property Name="Email" Type="varchar" MaxLength="320" />
+          <Property Name="OpeningHours" Type="nvarchar(max)" />
+          <Property Name="Shelter" Type="bit" Nullable="false" />
+          <Property Name="Food" Type="bit" Nullable="false" />
+          <Property Name="Job" Type="bit" Nullable="false" />
+          <Property Name="Family" Type="bit" Nullable="false" />
+          <Property Name="Legal" Type="bit" Nullable="false" />
+          <Property Name="Diversity" Type="bit" Nullable="false" />
+          <Property Name="Health" Type="bit" Nullable="false" />
+          <Property Name="Location" Type="char" MaxLength="10" Nullable="false" />
+          <Property Name="Accessability" Type="varchar" MaxLength="200" />
+          <Property Name="Clientele" Type="varchar" MaxLength="200" />
+          <Property Name="Referral" Type="varchar" MaxLength="200" />
+          <Property Name="MinAge" Type="int" />
+          <Property Name="MaxAge" Type="int" />
+          <Property Name="Cost" Type="varchar" MaxLength="50" />
+          <Property Name="Languages" Type="varchar(max)" />
+          <Property Name="Website" Type="varchar" MaxLength="2083" />
         </EntityType>
-        <EntityContainer Name="ACTYouthServiceDatabaseModelStoreContainer">
-          <EntitySet Name="__RefactorLog" EntityType="Self.__RefactorLog" Schema="dbo" store:Type="Tables" />
+        <EntityContainer Name="ACTYouthServicesDatabaseModelStoreContainer">
           <EntitySet Name="Service" EntityType="Self.Service" Schema="dbo" store:Type="Tables" />
         </EntityContainer>
-      </Schema></edmx:StorageModels>
+      </Schema>
+    </edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
-      <Schema Namespace="ACTYouthServiceDatabaseModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
-        <EntityType Name="C__RefactorLog">
-          <Key>
-            <PropertyRef Name="OperationKey" />
-          </Key>
-          <Property Name="OperationKey" Type="Guid" Nullable="false" />
-        </EntityType>
+      <Schema Namespace="ACTYouthServicesDatabaseModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
         <EntityType Name="Service">
           <Key>
             <PropertyRef Name="ServiceID" />
           </Key>
-          <Property Name="ServiceID" Type="Int32" Nullable="false" />
-          <Property Name="Name" Type="String" MaxLength="10" FixedLength="true" Unicode="true" Nullable="false" />
+          <Property Name="ServiceID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="Latitude" Type="Decimal" Nullable="false" Precision="9" Scale="6" />
-          <Property Name="Longitude" Type="Decimal" Nullable="false" Precision="9" Scale="6" />
-          <Property Name="Location" Type="String" Nullable="false" MaxLength="10" FixedLength="true" Unicode="true" />
-          <Property Name="Shelter" Type="Boolean" />
-          <Property Name="Health" Type="Boolean" />
-          <Property Name="Food" Type="Boolean" />
-          <Property Name="Legal" Type="Boolean" />
-          <Property Name="Family" Type="Boolean" />
+          <Property Name="Phone" Type="String" MaxLength="10" FixedLength="true" Unicode="false" />
+          <Property Name="Address" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Longitude" Type="Decimal" Precision="9" Scale="6" Nullable="false" />
+          <Property Name="Latitude" Type="Decimal" Precision="9" Scale="6" Nullable="false" />
+          <Property Name="Email" Type="String" MaxLength="320" FixedLength="false" Unicode="false" />
+          <Property Name="OpeningHours" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Shelter" Type="Boolean" Nullable="false" />
+          <Property Name="Food" Type="Boolean" Nullable="false" />
+          <Property Name="Job" Type="Boolean" Nullable="false" />
+          <Property Name="Family" Type="Boolean" Nullable="false" />
+          <Property Name="Legal" Type="Boolean" Nullable="false" />
+          <Property Name="Diversity" Type="Boolean" Nullable="false" />
+          <Property Name="Health" Type="Boolean" Nullable="false" />
+          <Property Name="Location" Type="String" MaxLength="10" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="Accessability" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="Clientele" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="Referral" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="MinAge" Type="Int32" />
+          <Property Name="MaxAge" Type="Int32" />
+          <Property Name="Cost" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Languages" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Website" Type="String" MaxLength="2083" FixedLength="false" Unicode="false" />
         </EntityType>
-        <EntityContainer Name="ACTYouthServiceDatabaseEntities1" annotation:LazyLoadingEnabled="true">
-          <EntitySet Name="C__RefactorLog" EntityType="Self.C__RefactorLog" />
+        <EntityContainer Name="ACTYouthServicesDatabaseEntities" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="Services" EntityType="Self.Service" />
         </EntityContainer>
       </Schema>
@@ -66,28 +81,35 @@
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="ACTYouthServiceDatabaseModelStoreContainer" CdmEntityContainer="ACTYouthServiceDatabaseEntities1">
-          <EntitySetMapping Name="C__RefactorLog">
-            <EntityTypeMapping TypeName="ACTYouthServiceDatabaseModel.C__RefactorLog">
-              <MappingFragment StoreEntitySet="__RefactorLog">
-                <ScalarProperty Name="OperationKey" ColumnName="OperationKey" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
+        <EntityContainerMapping StorageEntityContainer="ACTYouthServicesDatabaseModelStoreContainer" CdmEntityContainer="ACTYouthServicesDatabaseEntities">
           <EntitySetMapping Name="Services">
-            <EntityTypeMapping TypeName="ACTYouthServiceDatabaseModel.Service">
+            <EntityTypeMapping TypeName="ACTYouthServicesDatabaseModel.Service">
               <MappingFragment StoreEntitySet="Service">
-                <ScalarProperty Name="Family" ColumnName="Family" />
-                <ScalarProperty Name="Legal" ColumnName="Legal" />
-                <ScalarProperty Name="Food" ColumnName="Food" />
-                <ScalarProperty Name="Health" ColumnName="Health" />
-                <ScalarProperty Name="Shelter" ColumnName="Shelter" />
-                <ScalarProperty Name="Location" ColumnName="Location" />
-                <ScalarProperty Name="Longitude" ColumnName="Longitude" />
-                <ScalarProperty Name="Latitude" ColumnName="Latitude" />
                 <ScalarProperty Name="ServiceID" ColumnName="ServiceID" />
                 <ScalarProperty Name="Name" ColumnName="Name" />
                 <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="Phone" ColumnName="Phone" />
+                <ScalarProperty Name="Address" ColumnName="Address" />
+                <ScalarProperty Name="Longitude" ColumnName="Longitude" />
+                <ScalarProperty Name="Latitude" ColumnName="Latitude" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="OpeningHours" ColumnName="OpeningHours" />
+                <ScalarProperty Name="Shelter" ColumnName="Shelter" />
+                <ScalarProperty Name="Food" ColumnName="Food" />
+                <ScalarProperty Name="Job" ColumnName="Job" />
+                <ScalarProperty Name="Family" ColumnName="Family" />
+                <ScalarProperty Name="Legal" ColumnName="Legal" />
+                <ScalarProperty Name="Diversity" ColumnName="Diversity" />
+                <ScalarProperty Name="Health" ColumnName="Health" />
+                <ScalarProperty Name="Location" ColumnName="Location" />
+                <ScalarProperty Name="Accessability" ColumnName="Accessability" />
+                <ScalarProperty Name="Clientele" ColumnName="Clientele" />
+                <ScalarProperty Name="Referral" ColumnName="Referral" />
+                <ScalarProperty Name="MinAge" ColumnName="MinAge" />
+                <ScalarProperty Name="MaxAge" ColumnName="MaxAge" />
+                <ScalarProperty Name="Cost" ColumnName="Cost" />
+                <ScalarProperty Name="Languages" ColumnName="Languages" />
+                <ScalarProperty Name="Website" ColumnName="Website" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

@@ -13,10 +13,10 @@ namespace ACTYouthServicesWeb.Models
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class ACTYouthServiceDatabaseEntities1 : DbContext
+    public partial class ACTYouthServicesDatabaseEntities : DbContext
     {
-        public ACTYouthServiceDatabaseEntities1()
-            : base("name=ACTYouthServiceDatabaseEntities1")
+        public ACTYouthServicesDatabaseEntities()
+            : base("name=ACTYouthServicesDatabaseEntities")
         {
         }
     
@@ -25,7 +25,6 @@ namespace ACTYouthServicesWeb.Models
             throw new UnintentionalCodeFirstException();
         }
     
-        public virtual DbSet<C__RefactorLog> C__RefactorLog { get; set; }
         public virtual DbSet<Service> Services { get; set; }
     }
 }

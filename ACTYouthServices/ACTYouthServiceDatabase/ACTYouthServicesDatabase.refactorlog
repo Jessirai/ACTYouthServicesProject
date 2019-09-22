@@ -7,4 +7,32 @@
     <Property Name="ParentElementType" Value="SqlTable" />
     <Property Name="NewName" Value="ServiceID" />
   </Operation>
+  <Operation Name="Rename Refactor" Key="aed16c19-03f5-4208-8a93-902b29a11462" ChangeDateTime="09/22/2019 06:22:57">
+    <Property Name="ElementName" Value="[dbo].[Service].[Adress]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[Service]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="Address" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="7e1838c1-b36b-4928-924f-b4d4a1ec6a8e" ChangeDateTime="09/22/2019 06:40:04">
+    <Property Name="ElementName" Value="[dbo].[Service].[Refer]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[Service]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="Referral" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="f03201b0-e685-45bc-909a-a7c21a06175b" ChangeDateTime="09/22/2019 06:40:53">
+    <Property Name="ElementName" Value="[dbo].[Service].[DisabledAccess]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[Service]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="Accessability" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="f2bdec75-9add-4987-a8fc-fe8b88d4269b" ChangeDateTime="09/22/2019 06:45:00">
+    <Property Name="ElementName" Value="[dbo].[Service].[WhoAccess]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[Service]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="Clientele" />
+  </Operation>
 </Operations>

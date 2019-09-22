@@ -12,12 +12,11 @@ Post-Deployment Script Template
 
 MERGE INTO Service AS Target 
 USING (VALUES 
-        (1, 'Service 1', 'Service 1 Desc', -109.236, -182.974, 'Belconnen', 1, 0, 0, 0, 0), 
-        (2, 'Service 2', 'Service 2 Desc', -106.126, -184.967, 'Woden', 1, 0, 0, 1, 1), 
-        (3, 'Service 3', 'Service 1 Desc', -110.336, -181.645, 'Civic', 0, 1, 1, 0, 0) 
+        (1, 'Belconnen Community Service', '', 62640200, '26 Chandler Street, Belconnen ACT 2616', -35.230168, 149.07014, 'bcs@bcsact.com.au', 'Monday to Friday, 9AM to 5PM', 0, 0, 0, 1, 0, 1, 1, 'Belconnen', 'Parking, Toilets, Ramps', null, null, null, null, null, null, 'https://www.bcsact.com.au/'), 
+        (2, 'Bit Bent - Gender Diverse Support', '', 62640200, 'Belconnen Youth Centre, Corner of Chandler Street and Swanson Court, Belconnen', -35.230168, 149.07014, 'bcs@bcsact.com.au', 'Monday evenings, 6PM to 8PM, during school terms', 0, 1, 0, 0, 0, 1, 1, 'Belconnen', null, 'Anyone', null, 12, 25, 'No fee', null, 'https://www.bcsact.com.au/programs-and-services/bit-bent-lgtbiq-social-group-youth-services/')
 ) 
-AS Source (ServiceID, Name, Description, Latitude, Longitude, Location, Shelter, Health, Food, Legal, Family) 
+AS Source (ServiceID, Name, Description, Phone, Address, Longitude, Latitude, Email, OpeningHours, Shelter, Food, Job, Family, Legal, Diversity, Health, Location, Accessability, Clientele, Referral, MinAge, MaxAge, Cost, Languages, Website) 
 ON Target.ServiceID = Source.ServiceID 
 WHEN NOT MATCHED BY TARGET THEN 
-INSERT (Name, Description, Latitude, Longitude, Location, Shelter, Health, Food, Legal, Family) 
-VALUES (Name, Description, Latitude, Longitude, Location, Shelter, Health, Food, Legal, Family);
+INSERT (Name, Description, Phone, Address, Longitude, Latitude, Email, OpeningHours, Shelter, Food, Job, Family, Legal, Diversity, Health, Location, Accessability, Clientele, Referral, MinAge, MaxAge, Cost, Languages, Website) 
+VALUES (Name, Description, Phone, Address, Longitude, Latitude, Email, OpeningHours, Shelter, Food, Job, Family, Legal, Diversity, Health, Location, Accessability, Clientele, Referral, MinAge, MaxAge, Cost, Languages, Website);

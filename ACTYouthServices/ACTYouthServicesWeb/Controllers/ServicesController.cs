@@ -12,7 +12,7 @@ namespace ACTYouthServicesWeb.Controllers
 {
     public class ServicesController : Controller
     {
-        private ACTYouthServiceDatabaseEntities1 db = new ACTYouthServiceDatabaseEntities1();
+        private ACTYouthServicesDatabaseEntities db = new ACTYouthServicesDatabaseEntities();
 
         // GET: Services
         public ActionResult Index()
@@ -46,7 +46,7 @@ namespace ACTYouthServicesWeb.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "ServiceID,Name,Description,Latitude,Longitude,Location,Shelter,Health,Food,Legal,Family")] Service service)
+        public ActionResult Create([Bind(Include = "ServiceID,Name,Description,Phone,Address,Longitude,Latitude,Email,OpeningHours,Shelter,Food,Job,Family,Legal,Diversity,Health,Location,Accessability,Clientele,Referral,MinAge,MaxAge,Cost,Languages,Website")] Service service)
         {
             if (ModelState.IsValid)
             {
@@ -78,7 +78,7 @@ namespace ACTYouthServicesWeb.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "ServiceID,Name,Description,Latitude,Longitude,Location,Shelter,Health,Food,Legal,Family")] Service service)
+        public ActionResult Edit([Bind(Include = "ServiceID,Name,Description,Phone,Address,Longitude,Latitude,Email,OpeningHours,Shelter,Food,Job,Family,Legal,Diversity,Health,Location,Accessability,Clientele,Referral,MinAge,MaxAge,Cost,Languages,Website")] Service service)
         {
             if (ModelState.IsValid)
             {

@@ -198,9 +198,6 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>ACTYouthServicesModel.edmx</DependentUpon>
     </Compile>
-    <Compile Include="Models\C__RefactorLog.cs">
-      <DependentUpon>ACTYouthServicesModel.tt</DependentUpon>
-    </Compile>
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Models\Service.cs">
