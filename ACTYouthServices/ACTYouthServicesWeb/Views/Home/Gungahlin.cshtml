@@ -1,0 +1,35 @@
+﻿@model IEnumerable<ACTYouthServicesWeb.Models.Service>
+@{
+    ViewBag.Title = "Gungahlin";
+}
+
+<h2>Gungahlin</h2>
+<p>Find services located  in and around the Gungahlin area.</p>
+<hr />
+<!--search bar to find service by search term-->
+@using (Html.BeginForm())
+{
+    <p>
+        Search for a service @Html.TextBox("SearchString")
+        <input class="mainMap" type="submit" value="Find Services" onclick="showResults" />
+    </p>
+}
+<hr />
+@foreach (var item in Model)
+{
+    if (item.Location.Contains("Gungahlin"))
+    {
+        <div class="card">
+            <!--<img class="card-img-top" src="~/Content/img/Types.png" alt="four squares with the top left shaded darker">-->
+            <div class="card-body">
+                <h3 class="card-title">@Html.DisplayFor(modelItem => item.Name)</h3>
+                <p class="card-text">@Html.DisplayFor(modelitem => item.Description)</p>
+                <!--
+                <h4>@Html.DisplayNameFor(model => model.Phone): @Html.DisplayFor(modelItem => item.Phone)</h4>
+                <h4>@Html.DisplayNameFor(model => model.Location): @Html.DisplayFor(modelItem => item.Location)</h4>
+                -->
+            </div>
+            <a href="~/Home/Details/@Html.DisplayFor(modelItem => item.ServiceID)" class="btn btn-primary btn-block">Go to @Html.DisplayFor(modelItem => item.Name)'s page </a>
+        </div>
+    }
+}

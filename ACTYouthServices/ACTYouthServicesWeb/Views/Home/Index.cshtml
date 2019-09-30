@@ -1,4 +1,4 @@
-﻿@model ACTYouthServicesWeb.Models.Service
+﻿@model IEnumerable<ACTYouthServicesWeb.Models.Service>
 
 
 @{
@@ -6,7 +6,7 @@
 }
 <h1>Welcome</h1>
 <p>The ACT Youth Homelessness Services Directory is a resource which young people in the ACT, who find themselves homeless or at risk of becoming homeless can find services to help them in their time of need.</p>
-<p>The map below can be used to find services which are close to you.To look for services based on their type, <a href="~/Services/ServicesType">click here</a>. To look for services by their nearset town center <a href="~/Services/ServicesLocation">click here</a>.</p>
+<p>The map below can be used to find services which are close to you.To look for services based on their type, <a href="~/Home/Type">click here</a>. To look for services by their nearset town center <a href="~/Home/Location">click here</a>.</p>
 <style>
     /* Set the size of the div element that contains the map */
     #map {
@@ -14,22 +14,19 @@
         width: 100%; /* The width is the width of the web page */
     }
 </style>
-
-
-
-
 <h3>Services near you</h3>
 <!--The div element for the map -->
+<!--search bar to find service by search term--> 
 @using (Html.BeginForm())
 {
     <p>
-        Search for service @Html.TextBox("SearchString")
-        <input class="mainMap" type="submit" value="Search" onclick="showResults" />
+        Search for a service @Html.TextBox("SearchString")
+        <input class="mainMap" type="submit" value="Find Services" onclick="showResults" />
     </p>
 }
 
-
 <div id="map"></div>
+
 <script>
     // Note: This example requires that you consent to location sharing when
     // prompted by your browser. If you see the error "The Geolocation service
@@ -43,15 +40,18 @@
                 lat: position.coords.latitude,
                 lng: position.coords.longitude
             };
+
             /*plot markers for services*/
             var marker = new google.maps.Marker({
                 position: {
-                    lat: 10.9968683,
-                    lng: 76.00882
+                    lat: LatD,
+                    lng: LonD
                 },
                 map: map,
 
             });
+            /*map marker experiment space razor*/
+
 
             infoWindow.setPosition(pos);
             infoWindow.setContent('You are here.');
@@ -61,26 +61,27 @@
 
             if (position.coords.longitude > 149.3) {
                 if (window.confirm("It appears you are visiting the website from outside of the ACT. Click OK to go to the relevant directory for your state or territory, or click Cancel to stay on this page.")) {
-                    window.location.href = "/Services/Interstate";
+                    window.location.href = "/Home/Interstate";
                 }
             };
             if (position.coords.longitude < 148.80) {
                 if (window.confirm("It appears you are visiting the website from outside of the ACT. Click OK to go to the relevant directory for your state or territory, or click Cancel to stay on this page.")) {
-                    window.location.href = "/Services/Interstate";
+                    window.location.href = "/Home/Interstate";
                 }
             };
 
             if (position.coords.latitude > (center.lat + 0.5)) {
                 if (window.confirm("It appears you are visiting the website from outside of the ACT. Click OK to go to the relevant directory for your state or territory, or click Cancel to stay on this page.")) {
-                    window.location.href = "/Services/Interstate";
+                    window.location.href = "/Home/Interstate";
                 }
             };
             if (position.coords.latitude < (center.lat - 0.5)) {
                 if (window.confirm("It appears you are visiting the website from outside of the ACT. Click OK to go to the relevant directory for your state or territory, or click Cancel to stay on this page.")) {
-                    window.location.href = "/Services/Interstate";
+                    window.location.href = "/Home/Interstate";
                 }
             };
             var marker = new google.maps.Marker({ position: center });
+
 
         }, function () {
             handleLocationError(true, infoWindow, map.getCenter());
@@ -111,6 +112,14 @@
             'Error: Your browser doesnt support geolocation.');
         infoWindow.open(map);
     }
+    for (var i = 0; i < geoArray.length; i++) {
+
+        var myLatLng = new google.maps.LatLng(DBLat, DBLng);
+        var marker = new google.maps.Marker({
+            position: myLatLng,
+            map: map
+        });
+    }
 </script>
 
 <!--Load the API from the specified URL
@@ -132,5 +141,128 @@
 -->
 
 <h3>Services</h3>
-<p>Insert list of services from map here</p>
-<!--Return results based on search terms-->
+<p>The following services were found close to you.</p>
+<div class="container">
+    <ul class="nav nav-tabs">
+        <li class="active"><a data-toggle="tab" href="#home">Shelter</a></li>
+        <li><a data-toggle="tab" href="#menu1">Meals and Food</a></li>
+        <li><a data-toggle="tab" href="#menu2">Inclusion and Diversity</a></li>
+        <li><a data-toggle="tab" href="#menu3">Health and Wellbeing</a></li>
+        <li><a data-toggle="tab" href="#menu4">Jobs and Employment</a></li>
+        <li><a data-toggle="tab" href="#menu5">Legal and Financial</a></li>
+        <li><a data-toggle="tab" href="#menu6">Family and Community</a></li>
+    </ul>
+
+    <div class="tab-content">
+        <div id="home" class="tab-pane fade in active">
+            <h3>Shelter Services</h3>
+            @foreach (var item in Model.Where(model => model.Shelter == true))
+            {
+                <div class="tile">
+                    <div class="card-body">
+                        <h4 class="tile-title">@Html.DisplayFor(modelItem => item.Name)</h4>
+                        <p class="tile-text">@Html.DisplayFor(modelitem => item.Description)</p>
+                        <h5>@Html.DisplayNameFor(model => model.Phone): @Html.DisplayFor(modelItem => item.Phone)</h5>
+                        <h5>@Html.DisplayNameFor(model => model.Location): @Html.DisplayFor(modelItem => item.Location)</h5>
+                        <a href="~/Home/Details/@Html.DisplayFor(modelItem => item.ServiceID)" class="tile-button">Go to @Html.DisplayFor(modelItem => item.Name)'s page </a>
+                    </div>
+                </div>
+            }
+        </div>
+        <div id="menu1" class="tab-pane fade">
+            <h3>Meals and Food Services</h3>
+            @foreach (var item in Model.Where(model => model.Food == true))
+            {
+                <div class="tile">
+                    <div class="card-body">
+                        <h4 class="tile-title">@Html.DisplayFor(modelItem => item.Name)</h4>
+                        <p class="tile-text">@Html.DisplayFor(modelitem => item.Description)</p>
+                        <h5>@Html.DisplayNameFor(model => model.Phone): @Html.DisplayFor(modelItem => item.Phone)</h5>
+                        <h5>@Html.DisplayNameFor(model => model.Location): @Html.DisplayFor(modelItem => item.Location)</h5>
+                        <a href="~/Home/Details/@Html.DisplayFor(modelItem => item.ServiceID)" class="tile-button">Go to @Html.DisplayFor(modelItem => item.Name)'s page </a>
+                    </div>
+                </div>
+            }
+        </div>
+        <div id="menu2" class="tab-pane fade">
+            <h3>Inclusion and Diversity Services</h3>
+            @foreach (var item in Model.Where(model => model.Diversity == true))
+            {
+                <div class="tile">
+                    <div class="card-body">
+                        <h4 class="tile-title">@Html.DisplayFor(modelItem => item.Name)</h4>
+                        <p class="tile-text">@Html.DisplayFor(modelitem => item.Description)</p>
+                        <h5>@Html.DisplayNameFor(model => model.Phone): @Html.DisplayFor(modelItem => item.Phone)</h5>
+                        <h5>@Html.DisplayNameFor(model => model.Location): @Html.DisplayFor(modelItem => item.Location)</h5>
+                        <a href="~/Home/Details/@Html.DisplayFor(modelItem => item.ServiceID)" class="tile-button">Go to @Html.DisplayFor(modelItem => item.Name)'s page </a>
+                    </div>
+                </div>
+            }
+        </div>
+        <div id="menu3" class="tab-pane fade">
+            <h3>Health and Wellbeing Services</h3>
+            @foreach (var item in Model.Where(model => model.Health == true))
+            {
+                <div class="tile">
+                    <div class="card-body">
+                        <h4 class="tile-title">@Html.DisplayFor(modelItem => item.Name)</h4>
+                        <p class="tile-text">@Html.DisplayFor(modelitem => item.Description)</p>
+                        <h5>@Html.DisplayNameFor(model => model.Phone): @Html.DisplayFor(modelItem => item.Phone)</h5>
+                        <h5>@Html.DisplayNameFor(model => model.Location): @Html.DisplayFor(modelItem => item.Location)</h5>
+                        <a href="~/Home/Details/@Html.DisplayFor(modelItem => item.ServiceID)" class="tile-button">Go to @Html.DisplayFor(modelItem => item.Name)'s page </a>
+                    </div>
+                </div>
+            }
+        </div>
+        <div id="menu4" class="tab-pane fade">
+            <h3>Jobs and Employment Services</h3>
+            @foreach (var item in Model.Where(model => model.Job == true))
+            {
+                <div class="tile">
+                    <div class="card-body">
+                        <h4 class="tile-title">@Html.DisplayFor(modelItem => item.Name)</h4>
+                        <p class="tile-text">@Html.DisplayFor(modelitem => item.Description)</p>
+                        <h5>@Html.DisplayNameFor(model => model.Phone): @Html.DisplayFor(modelItem => item.Phone)</h5>
+                        <h5>@Html.DisplayNameFor(model => model.Location): @Html.DisplayFor(modelItem => item.Location)</h5>
+                        <a href="~/Home/Details/@Html.DisplayFor(modelItem => item.ServiceID)" class="tile-button">Go to @Html.DisplayFor(modelItem => item.Name)'s page </a>
+                    </div>
+                </div>
+            }
+        </div>
+        <div id="menu5" class="tab-pane fade">
+            <h3>Legal and Financial Services</h3>
+            @foreach (var item in Model.Where(model => model.Legal == true))
+            {
+                <div class="tile">
+                    <div class="card-body">
+                        <h4 class="tile-title">@Html.DisplayFor(modelItem => item.Name)</h4>
+                        <p class="tile-text">@Html.DisplayFor(modelitem => item.Description)</p>
+                        <h5>@Html.DisplayNameFor(model => model.Phone): @Html.DisplayFor(modelItem => item.Phone)</h5>
+                        <h5>@Html.DisplayNameFor(model => model.Location): @Html.DisplayFor(modelItem => item.Location)</h5>
+                        <a href="~/Home/Details/@Html.DisplayFor(modelItem => item.ServiceID)" class="tile-button">Go to @Html.DisplayFor(modelItem => item.Name)'s page </a>
+                    </div>
+                </div>
+            }
+        </div>
+        <div id="menu6" class="tab-pane fade">
+            <h3>Family and Community Services</h3>
+            @foreach (var item in Model.Where(model => model.Family == true))
+            {
+                <div class="tile">
+                    <div class="card-body">
+                        <h4 class="tile-title">@Html.DisplayFor(modelItem => item.Name)</h4>
+                        <p class="tile-text">@Html.DisplayFor(modelitem => item.Description)</p>
+                        <h5>@Html.DisplayNameFor(model => model.Phone): @Html.DisplayFor(modelItem => item.Phone)</h5>
+                        <h5>@Html.DisplayNameFor(model => model.Location): @Html.DisplayFor(modelItem => item.Location)</h5>
+                        <a href="~/Home/Details/@Html.DisplayFor(modelItem => item.ServiceID)" class="tile-button">Go to @Html.DisplayFor(modelItem => item.Name)'s page </a>
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+</div>
+<!--Improved google map-->
+<div id="dvMap" style="width: 500px; height: 500px">
+</div>
+<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDXq96VjA3ovASTp9u95xIFoNifTgSZWFk"></script>
+

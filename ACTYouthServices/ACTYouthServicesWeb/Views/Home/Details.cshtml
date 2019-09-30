@@ -1,217 +1,192 @@
 ﻿@model ACTYouthServicesWeb.Models.Service
 
 @{
-    ViewBag.Title = "Details";
+    ViewBag.Title = Html.DisplayFor(Model => Model.Name);
 }
 
+<script>
+    function addFavourite() {
+        alert("To add @Html.DisplayFor(Model => Model.Name) to your favourites, press CTRL and D on your keyboard, at the same time.")
+    }
+</script>
 <h2>@Html.DisplayFor(model => model.Name)</h2>
+<!--Display address under service name / title-->
+<p id="address">@Html.DisplayFor(Model => Model.Address)</p>
+<!--Load iframe to get directions to service-->
+<!--Google maps Embed Api used-->
+<iframe class="iframeMap" 0" style="border:0"
+        src="https://www.google.com/maps/embed/v1/place?key=AIzaSyDXq96VjA3ovASTp9u95xIFoNifTgSZWFk
+    &q=@Html.ValueFor(Model => Model.Address)" allowfullscreen></iframe>
 
 
-<div>
-    <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.Name)
-        </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.Name)
-        </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Description)
-        </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.Description)
-        </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Phone)
-        </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.Phone)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Address)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Address)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Longitude)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Longitude)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Latitude)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Latitude)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Email)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Email)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.OpeningHours)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.OpeningHours)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Shelter)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Shelter)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Food)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Food)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Job)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Job)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Family)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Family)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Legal)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Legal)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Diversity)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Diversity)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Health)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Health)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Location)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Location)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Accessability)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Accessability)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Clientele)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Clientele)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Referral)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Referral)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.MinAge)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.MinAge)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.MaxAge)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.MaxAge)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Cost)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Cost)
-        </dd>
-
-        <dt>
-            @if (Model.Languages == "")
-            {
-
-                @Html.DisplayNameFor(model => model.Languages)
-            }
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Languages)
-        </dd>
-
-        <dt> 
-            @Html.DisplayNameFor(model => model.Website)
-        </dt>
-
-        <dd><a href="@Html.DisplayFor(model => model.Website)">Go to @Html.DisplayFor(model => model.Name) website</a>
-        </dd>
-
-    </dl>
+<!--Insert service details-->
+<hr />
+<div class="ServiceDescription">
+    <h3>About @Html.DisplayFor(Model => Model.Name)</h3>
+    @Html.DisplayFor(Model => Model.Description)
 </div>
-<p>
-    <!--Hidden to avoid being used-->
-    <!--
-    @Html.ActionLink("Edit", "Edit", new { id = Model.ServiceID }) |
-    @Html.ActionLink("Back to List", "Index")
-        -->
-</p>
+<hr />
+<div class="ServiceDetails">
+    <h3>Contact Details</h3>
+    <hr />
+    <div>
+        <img class="textIcon" src="~/Content/img/icons/address.png" />
+        <strong>@Html.DisplayNameFor(Model => Model.Address): </strong>
+        <p>@Html.DisplayFor(Model => Model.Address)</p>
+    </div>
+    <div>
+        <img class="textIcon" src="~/Content/img/icons/phone.png" />
+        <strong>@Html.DisplayNameFor(Model => Model.Phone): </strong>
+        <p>@Html.DisplayFor(Model => Model.Phone)</p>
+    </div>
+    <div>
+        <img class="textIcon" src="~/Content/img/icons/email.png" />
+        <strong>@Html.DisplayNameFor(Model => Model.Email): </strong>
+        <p>@Html.DisplayFor(Model => Model.Email)</p>
+    </div>
+    <div>
+        <img class="textIcon" src="~/Content/img/icons/website.png" />
+        <strong>@Html.DisplayNameFor(Model => Model.Website): </strong>
+        <p><a href="@Html.DisplayFor(Model => Model.Website)">Go to @Html.DisplayFor(Model => Model.Name)'s website</a></p>
+    </div>
+    <div>
+        <img class="textIcon" src="~/Content/img/icons/openingHours.png" />
+        <strong>@Html.DisplayNameFor(Model => Model.OpeningHours):</strong>
+        <p>@Html.DisplayFor(Model => Model.OpeningHours)</p>
+    </div>
+</div>
+<div class="ServiceAccessibility">
+    <h3>Access details</h3>
+    <hr />
+    <!--loop to display who can access the services-->
+    @if (Model.Clientele != null)
+    {
+    <div>
+        <img class="textIcon" src="~/Content/img/icons/clientele.png" />
+        <strong>Who can access this service: </strong><p>@Html.DisplayFor(Model => Model.Clientele)</p>
+    </div>
+    }
+    else
+    {
+    <div>
+        <img class="textIcon" src="~/Content/img/icons/clientele.png" />
+        <strong>Who can access this service: </strong><p> Not listed</p>
+    </div>
+
+    }
+    <!--Loop to display if there is costs associated with accessing the service-->
+    @if (Model.Cost != null)
+    {
+    <div>
+        <img class="textIcon" src="~/Content/img/icons/cost.png" />
+        <strong>@Html.DisplayNameFor(Model => Model.Cost): </strong>
+        <p>@Html.DisplayFor(Model => Model.Cost)</p>
+    </div>
+    }
+    else
+    {
+    <div>
+        <img class="textIcon" src="~/Content/img/icons/cost.png" />
+        <strong>Cost: </strong>
+        <p>Not listed</p>
+    </div>
+    }
+    <!--Loop to display if a referral is required-->
+    @if (Model.Referral != null)
+    {
+    <div>
+        <img class="textIcon" src="~/Content/img/icons/referral.png" />
+        <strong>@Html.DisplayNameFor(Model => Model.Referral): </strong>
+        <p>@Html.DisplayFor(Model => Model.Referral)</p>
+    </div>
+    }
+    else
+    {
+    <div>
+        <img class="textIcon" src="~/Content/img/icons/referral.png" />
+        <strong>Referral required: </strong>
+        <p>Not specified</p>
+    </div>
+
+    }
+
+    <!--Loop to display other languages available where applicable-->
+    @if (Model.Languages != null)
+    {
+    <div>
+        <img class="textIcon" src="~/Content/img/icons/languages.png" />
+        <strong>@Html.DisplayNameFor(Model => Model.Languages): </strong>
+        <p>@Html.DisplayFor(Model => Model.Languages)</p>
+    </div>
+
+
+    }
+    else
+    {
+    <div>
+        <img class="textIcon" src="~/Content/img/icons/languages.png" />
+        <strong>Other Languages available: </strong>
+        <p>None listed</p>
+    </div>
+    }
+    <!--loop to display accessability requirements, where applicable-->
+    @if (Model.Accessability != null)
+    {
+    <div>
+        <img class="textIcon" src="~/Content/img/icons/accessibility.png"/>
+        <strong>@Html.DisplayNameFor(Model => Model.Accessability):</strong>
+        <p>@Html.DisplayFor(Model => Model.Accessability)</p>
+    </div>
+    }
+    else
+    {
+    <div>
+        <img class="textIcon" src="~/Content/img/icons/accessibility.png" />
+        <strong>Accessibility options: </strong>
+        <p>None listed</p>
+    </div>
+    }
+    <!--loop to display age requirements where applicable-->
+    @if (Model.MaxAge.HasValue)
+    {
+    <div>
+        <img class="textIcon" src="~/Content/img/icons/ages.png" />
+        <strong>Age Range: </strong>
+        <p> @Html.DisplayFor(Model => Model.MinAge) to @Html.DisplayFor(Model => Model.MaxAge)</p>
+    </div>
+    }
+    else
+    {
+        if (Model.MinAge.HasValue)
+        {
+            <div>
+                <img class="textIcon" src="~/Content/img/icons/ages.png" />
+                <strong>Age Range: </strong>
+                <p> @Html.DisplayFor(Model => Model.MinAge) and over</p>
+            </div>
+        }
+        else
+        {
+            <div>
+                <img class="textIcon" src="~/Content/img/icons/ages.png" />
+                <strong>Age Range: </strong>
+                <p>All ages</p>
+            </div>
+        }
+
+    }
+</div>
+<!--Add page to favourites button-->
+<hr />
+<button class="btn-md" href="#" onclick="addFavourite()" id="ServicePageButton">Add @Html.DisplayFor(Model => Model.Name) to my Favorites</button>
+<!--Button to nabugate back to services menu-->
+<button class="btn-md" href="#" onclick="window.location='/Home/ServicesMenu'" id="ServicePageButton">Find other services</button>
+
+
+
 

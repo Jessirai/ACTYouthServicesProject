@@ -1,21 +1,23 @@
 ﻿@model IEnumerable<ACTYouthServicesWeb.Models.Service>
 @{
-    ViewBag.Title = "Belconnen";
+    ViewBag.Title = "Civic";
 }
 <script>
-    function myFunction() {
-        var checkBox = document.getElementById("myCheck");
-        var text = document.getElementById("text");
-        if (checkBox.checked == true) {
-            text.style.display = "block";
+    function submit() {
+        var shelter = document.getElementById('shelter')
+        if (shelter.checked) {
+            alert('shelter is checked')
         } else {
-            text.style.display = "none";
+            alert('shelter is not checked')
         }
     }
 </script>
-
-<h2>Belconnen</h2>
-<p>Find services which are located in and around the Belconnen area.</p>
+<h2>Civic</h2>
+<p>
+    Civic is the city centre or central business district of Canberra. Civic is commonly used to describe the CBD of
+    Canberra, but can also be known as Civic Centre, City Centre, Canberra City and Canberra, but its official division
+    name is City, with the postcode 2601. The services classified as being in Civic includes.
+</p>
 <hr />
 <!--search bar to find service by search term-->
 @using (Html.BeginForm())
@@ -26,10 +28,25 @@
     </p>
 }
 <hr />
+<div class="filters">
+    <h3>Filters</h3>
+    <h4>Categories</h4>
+    <a href="#" class="filter">Shelter</a>
+    <a class="filter">Meals/Food</a>
+    <a class="filter">Inclusion/Diversity</a>
+    <a class="filter">Health/Wellbeing</a>
+    <a class="filter">Jobs/Employment</a>
+    <a class="filter">Family/Community</a>
+    <a class="filter">Legal/Financial</a>
+    <hr />
+
+
+</div>
 <div class="results">
+    <h3>Search Results</h3>
     @foreach (var item in Model)
     {
-        if (item.Location.Contains("Belconnen"))
+        if (item.Location.Contains("Civic"))
         {
             <div class="card">
                 <div class="card-body">
@@ -47,5 +64,4 @@
     }
 </div>
 
-
-
+<!--Shelter results-->

@@ -1,11 +1,10 @@
 ﻿@model IEnumerable<ACTYouthServicesWeb.Models.Service>
 @{
-    ViewBag.Title = "Meals";
+    ViewBag.Title = "Jobs";
 }
 
-<h2>Meals</h2>
-<p>Services in this catgeory can help young people to find a hot meal or food pantries.</p>
-<!--search bar to find service by search term-->
+<h2>Jobs</h2>
+<p>Sercices in this category can help a young person to become employed or get the skills and support that they need to become employed.</p>
 <hr />
 @using (Html.BeginForm())
 {
@@ -15,19 +14,17 @@
     </p>
 }
 <hr />
-@foreach (var item in Model.Where(model => model.Food == true))
+@foreach (var item in Model.Where(model => model.Job == true))
 {
     <div class="card">
+        <!--<img class="card-img-top" src="~/Content/img/Types.png" alt="four squares with the top left shaded darker">-->
         <div class="card-body">
-            <img class="card-img-top" src="~/Content/img/Types.png" alt="four squares with the top left shaded darker">
             <h3 class="card-title">@Html.DisplayFor(modelItem => item.Name)</h3>
             <p class="card-text">@Html.DisplayFor(modelitem => item.Description)</p>
-            <!--
             <h4>@Html.DisplayNameFor(model => model.Phone): @Html.DisplayFor(modelItem => item.Phone)</h4>
             <h4>@Html.DisplayNameFor(model => model.Location): @Html.DisplayFor(modelItem => item.Location)</h4>
-            -->
+            <a href="~/Home/Details/@Html.DisplayFor(modelItem => item.ServiceID)" class="btn btn-primary btn-block">Go to @Html.DisplayFor(modelItem => item.Name)'s page </a>
         </div>
-        <a href="~/Home/Details/@Html.DisplayFor(modelItem => item.ServiceID)" class="btn btn-primary btn-block">Go to @Html.DisplayFor(modelItem => item.Name)'s page </a>
     </div>
 }
 

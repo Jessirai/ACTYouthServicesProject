@@ -3,12 +3,14 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>@ViewBag.Title - My ASP.NET Application</title>
+    <title>@ViewBag.Title - ACT Youth Homelessness Services Directory</title>
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
 
 </head>
 <body>
+    <!--New navbar-->
+    <!--End New Navbar-->
     <div class="navbar navbar-inverse navbar-fixed-top">
         <div class="container">
             <div class="navbar-header">
@@ -17,29 +19,67 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                @Html.ActionLink("Application name", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+                <img src="~/Content/img/Logo.png" class="nav-logo" />
+                <div class="nav-title">
+                    @Html.ActionLink("ACT Y.H.S.D", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+                </div>
             </div>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
                     <li>@Html.ActionLink("Home", "Index", "Home")</li>
-                    <li>@Html.ActionLink("Services", "ServicesMenu", "Home")</li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Services</a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                            <ul>
+                                <li class="dropdown-item">
+                                    <a href="~/Home/Servicesmenu">Services</a>
+                                </li>
+                                <li class="dropdown-item">
+                                    <a href="~/Home/Type">Service Types</a>
+                                </li>
+                                <li class="dropdown-item">
+                                    <a href="~/Home/Location">Service Locations</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </li>
                     <li>@Html.ActionLink("About", "About", "Home")</li>
                     <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
                 </ul>
                 @Html.Partial("_LoginPartial")
             </div>
+
+
         </div>
     </div>
+
     <div class="container body-content">
         @RenderBody()
         <hr />
         <footer>
-            <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
+            <p>&copy; @DateTime.Now.Year - Northside Community Service - Youth Engagement Team</p>
+            <div class="footerNav">
+                <div class="footerLink">
+                    <a class="nav-item nav-link" href="#"><img class="footerIcon" src="~/Content/img/SocialMedia/facebook.png" /><p>Like us on Facebook</p></a>
+                </div>
+                <div class="footerLink">
+                    <a class="nav-item nav-link" href="#"><img class="footerIcon" src="~/Content/img/SocialMedia/linkedin.png" /><p>Follow us on LinkedIn</p></a>
+                </div>
+                <div class="footerLink">
+                    <a class="nav-item nav-link" href="#"><img class="footerIcon" src="~/Content/img/SocialMedia/instagram.png" /><p>Follow us on Instagram</p></a>
+                </div>
+                <div class="footerLink">
+                    <a class="nav-item nav-link" href="#"><img class="footerIcon" src="~/Content/img/SocialMedia/twitter.png" /><p>Follow us on twitter</p></a>
+                </div>
+            </div>
         </footer>
+
     </div>
 
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/bootstrap")
     @RenderSection("scripts", required: false)
+
 </body>
+
 </html>

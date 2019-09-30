@@ -25,9 +25,9 @@ textarea {
 /*set styles for cards*/
 .card {
     display: inline-block;
-    width: 250px;
-    height: 360px;
-    border: 1px solid #CCCCCC;
+    width: 270px;
+    height: 480px;
+    border:1px solid #770077;
     border-radius: 10px;
     align-content: center;
     vertical-align: top;
@@ -35,24 +35,268 @@ textarea {
 }
 
 .btn-block {
-    display: block;
     font-size: 14px;
+    height:55px;
+    width:268px;
+    white-space:normal;
+    color:#FFFFFF;
+    font-size:16px;
+    background-color:#770077;
+    border-top: 1px solid #770077;
+    border-radius:0 0 10px 10px;
+    
 }
 
 .card-body {
-    height: 320px;
-    width: 400px;
-    display:inline;
-    padding:0 10px 0 10px;
-    text-align:center;
+    height: 423px;
+    width: 270px;
+    padding: 0 10px 0 10px;
+    text-align: center;
 }
-
 .card-img-top {
     width: 150px;
     height: 150px;
-    margin: 10px 50px 0 50px;
+    margin: 5px 50px 0 50px;
     border-radius: 10px;
+    display:inline-block;
+    background:#FFFFFF;
+}
+.card-title {
+    margin-top: 5px;
+    bottom:0;
+}
+.card-text {
+    height:200px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+p {
+
+}
+/*Set proppertie of elements in the Create page*/
+/*category checkboxes attributes*/
+#CatCheck{
+    display:inline-block;
+    width:150px;
+    left:1%;
+    position:relative;
+}
+.checkbox{
+    display:inline;
+}
+.CatGroup{
+    align-content:center;
+
+}
+.form-group{
+    display:block;
+}
+/*Properties of inputs for create page*/
+/*Set the heading of pages to be visible below and not covered by navbar */
+h2{
+    margin-top:60px;
+}
+/*style the navbar area*/
+.navbar{
+    background-color: #550055;
+    height:50px;
+}
+.nav-logo{
+    height:50px;
+    display:inline;
+}
+.nav-title{
+    display:inline;
+    position:relative;
+}
+.navbar-collapse{
+    background-color: #550055;
+}
+.navbar-brand{
+    color:#FFFFFF!important;
+    font-weight:bold;
+}
+/*style the footer*/
+.nav-item nav-link{
+    display:inline-block;
+    position:absolute;
+}
+.footerIcon{
+    width:30px;
+    height:30px;
+    display:inline;
+}
+.footerLink{
+    width:220px;
+    list-style:none;
+    margin:0 0 10px 0;
+    padding-left:1px;
+    left:0;
+    display:inline-block;
+
+}
+.footerLink p{
+    width:150px;
+    display:inline;
+}
+footer{
+    background-color:#FFFFFF;
+}
+/*style the search bar for main map*/
+.mainMap{
+    
+}
+/*style the navbar(dropdown menu)*/
+.dropdown-item {
+    display: block;
+    width: 100%;
+    height:50px;
+    color:#770077;  
+    margin:0;
+    padding: 10px 0 0 0;
+    list-style:none;
+}
+.dropdown-menu{
+    background-color:#FFFFFF;
+}
+.nav-tabs a{
+    height:50px;
+    white-space:normal;
+    width:150px;
+    display:inline-block;
+
+}
+/*Set properties for tiles on home page*/
+.tile{
+    width:250px;
+    height:250px;
+    border:1px solid #880088;
+    left:0;
+    border-radius:10px;
+    display:inline-block;
+    margin:10px;
+}
+.tile-button{
+    width:230px;
+    height:40px;
+    margin:0;
+    padding:0;
+    float:left;
+    border:1px solid #880088;
+    border-radius:10px;
+    background-color:#990099;
+    color:#FFFFFF;
+
+}
+.tile-title{
+    white-space:normal;
+    height:35px;
+    width:230px;
+}
+.tile-text {
+    height: 80px;
+    width: 230px;
+    overflow: hidden;
+    text-overflow:ellipsis;
+}
+/*make service's page responsive (columns)*/
+.ServiceDetails{
+    width: 48.5%;
+    height:400px;
+    display: inline-block;
+    vertical-align:top;
+}
+.ServiceAccessibility {
+    width: 48.5%;
+    height: 450px;
+    display: inline-block;
+    vertical-align: top;
+    /*create vertical divider between contact and access details*/
+    border-left: 1px solid #990099;
+    margin-left: 10px;
+    padding-left: 10px;
+    right: 0;
 }
 
+/*set properties of map within iframe element*/
+.iframeMap{
+    height:70vh;
+    width:100%;
+}
+/* properties of buttons at bottom of individual service's page*/
+#ServicePageButton {
+    width: 40%;
+    height:50px;
+    margin: 0 4.5% 0 4.5%;
+    padding:0;
+    vertical-align:top;
+    border:2px solid #000000;
+    border-radius:10px;
+    background-color:#770077;
+    color:#FFFFFF;
+}
+/*properties of icons used to give meaning to text*/
+.textIcon{
+    height:30px;
+    width:30px;
+    display:inline;
+    margin:5px 5px 0 0;
+}
+.ServiceAccessibility p, strong{
+    display:inline;
+}
+.ServiceDetails p, strong {
+    display: inline;
+}
+/*properties for the results pane in category and locations pages*/
+.results{
+    width:79%;
+    display:inline-block;
+}
+.filters{
+    width:20%;
+    height:100%;
+    display:inline-block;
+    border-bottom:1px solid #770077;
+    vertical-align:top;
+}
+/*change certain properties when screen becomes too small*/
+@media only screen and (max-width: 700px) {
+    .ServiceAccessibility {
+        border-left: none;
+        margin-left: 0;
+        padding-left: 0;
+        display: block;
+        width: 100%;
+    }
 
+    .results {
+        display:inline-block;
+        height:0;
+        width: 80%;
+    }
 
+    .filters {
+        width: 200%;
+        height:100px;
+        display: inline-block;
+        /*remove left border line*/
+        border:none;
+        /*put line at bottom*/
+        border-bottom:1px solid #770077;
+    }
+
+    .ServiceDetails {
+        display: inline-block;
+        width: 100%;
+    }
+
+    #ServicePageButton {
+        font-size: 3vw;
+    }
+}
+/*set properties for filter links*/
+.filter{
+    display:block;
+    
+}

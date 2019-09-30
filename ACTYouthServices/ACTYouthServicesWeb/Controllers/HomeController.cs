@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data;
+using System.Data.SqlClient;
+using System.Configuration;
 using System.Data.Entity;
 using System.Linq;
 using System.Net;
@@ -14,12 +16,34 @@ namespace ACTYouthServicesWeb.Controllers
     {
         /*import database*/
         private ACTYouthServicesDatabaseEntities db = new ACTYouthServicesDatabaseEntities();
+        /*allow lat lng to be called from front end.*/
 
-        public ActionResult Index()
+
+        public ActionResult Index(string sortOrder, string searchString)
         {
-            return View();
+            ViewBag.NameSortParm = String.IsNullOrEmpty(sortOrder) ? "Name_desc" : "";
+            var services = from s in db.Services
+                           select s;
+            if (!string.IsNullOrEmpty(searchString))
+            {
+                services = services.Where(s => s.Name.ToUpper().Contains(searchString.ToUpper()) || s.Description.ToUpper().Contains(searchString.ToUpper()));
+            }
+            switch (sortOrder)
+            {
+                case "Name_desc":
+                    services = services.OrderByDescending(s => s.Name);
+                    break;
+                case "Date":
+                    services = services.OrderBy(s => s.Description);
+                    break;
+                default:
+                    services = services.OrderBy(s => s.Name);
+                    break;
+            }
+            return View(services.ToList());
         }
 
+        /*services menu page, where user can choose to find by location or type*/
         public ActionResult ServicesMenu()
         {
             ViewBag.Message = "Services page.";
@@ -37,6 +61,13 @@ namespace ACTYouthServicesWeb.Controllers
         public ActionResult Contact()
         {
             ViewBag.Message = "Your contact page.";
+
+            return View();
+        }
+        /*Interstate page*/
+        public ActionResult Interstate()
+        {
+            ViewBag.Message = "Interstate page.";
 
             return View();
         }
@@ -72,26 +103,285 @@ namespace ACTYouthServicesWeb.Controllers
         /*----------------------------------------------------------*/
         /*Service Locations-----------------------------------------*/
         /*----------------------------------------------------------*/
-        public ActionResult Belconnen()
+        public ActionResult Belconnen(string sortOrder, string searchString)
         {
+            ViewBag.NameSortParm = String.IsNullOrEmpty(sortOrder) ? "Name_desc" : "";
+            var services = from s in db.Services
+                           select s;
+            if (!string.IsNullOrEmpty(searchString))
             {
-                return View(db.Services.ToList());
+                services = services.Where(s => s.Name.ToUpper().Contains(searchString.ToUpper()) || s.Description.ToUpper().Contains(searchString.ToUpper()));
             }
+            switch (sortOrder)
+            {
+                case "Name_desc":
+                    services = services.OrderByDescending(s => s.Name);
+                    break;
+                case "Date":
+                    services = services.OrderBy(s => s.Description);
+                    break;
+                default:
+                    services = services.OrderBy(s => s.Name);
+                    break;
+            }
+            return View(services.ToList());
+        }
+        public ActionResult Tuggeranong(string sortOrder, string searchString)
+        {
+            ViewBag.NameSortParm = String.IsNullOrEmpty(sortOrder) ? "Name_desc" : "";
+            var services = from s in db.Services
+                           select s;
+            if (!string.IsNullOrEmpty(searchString))
+            {
+                services = services.Where(s => s.Name.ToUpper().Contains(searchString.ToUpper()) || s.Description.ToUpper().Contains(searchString.ToUpper()));
+            }
+            switch (sortOrder)
+            {
+                case "Name_desc":
+                    services = services.OrderByDescending(s => s.Name);
+                    break;
+                case "Date":
+                    services = services.OrderBy(s => s.Description);
+                    break;
+                default:
+                    services = services.OrderBy(s => s.Name);
+                    break;
+            }
+            return View(services.ToList());
+        }
+        public ActionResult Civic(string sortOrder, string searchString)
+        {
+            ViewBag.NameSortParm = String.IsNullOrEmpty(sortOrder) ? "Name_desc" : "";
+            var services = from s in db.Services
+                           select s;
+            if (!string.IsNullOrEmpty(searchString))
+            {
+                services = services.Where(s => s.Name.ToUpper().Contains(searchString.ToUpper()) || s.Description.ToUpper().Contains(searchString.ToUpper()));
+            }
+            switch (sortOrder)
+            {
+                case "Name_desc":
+                    services = services.OrderByDescending(s => s.Name);
+                    break;
+                case "Date":
+                    services = services.OrderBy(s => s.Description);
+                    break;
+                default:
+                    services = services.OrderBy(s => s.Name);
+                    break;
+            }
+            return View(services.ToList());
+        }
+        public ActionResult Woden(string sortOrder, string searchString)
+        {
+            ViewBag.NameSortParm = String.IsNullOrEmpty(sortOrder) ? "Name_desc" : "";
+            var services = from s in db.Services
+                           select s;
+            if (!string.IsNullOrEmpty(searchString))
+            {
+                services = services.Where(s => s.Name.ToUpper().Contains(searchString.ToUpper()) || s.Description.ToUpper().Contains(searchString.ToUpper()));
+            }
+            switch (sortOrder)
+            {
+                case "Name_desc":
+                    services = services.OrderByDescending(s => s.Name);
+                    break;
+                case "Date":
+                    services = services.OrderBy(s => s.Description);
+                    break;
+                default:
+                    services = services.OrderBy(s => s.Name);
+                    break;
+            }
+            return View(services.ToList());
+        }
+        public ActionResult Gungahlin(string sortOrder, string searchString)
+        {
+            ViewBag.NameSortParm = String.IsNullOrEmpty(sortOrder) ? "Name_desc" : "";
+            var services = from s in db.Services
+                           select s;
+            if (!string.IsNullOrEmpty(searchString))
+            {
+                services = services.Where(s => s.Name.ToUpper().Contains(searchString.ToUpper()) || s.Description.ToUpper().Contains(searchString.ToUpper()));
+            }
+            switch (sortOrder)
+            {
+                case "Name_desc":
+                    services = services.OrderByDescending(s => s.Name);
+                    break;
+                case "Date":
+                    services = services.OrderBy(s => s.Description);
+                    break;
+                default:
+                    services = services.OrderBy(s => s.Name);
+                    break;
+            }
+            return View(services.ToList());
         }
         /*----------------------------------------------------------*/
         /*Service Categories----------------------------------------*/
         /*----------------------------------------------------------*/
-        public ActionResult Shelter()
+        public ActionResult Shelter(string sortOrder, string searchString)
         {
+            ViewBag.NameSortParm = String.IsNullOrEmpty(sortOrder) ? "Name_desc" : "";
+            var services = from s in db.Services
+                           select s;
+            if (!string.IsNullOrEmpty(searchString))
             {
-                return View(db.Services.ToList());
+                services = services.Where(s => s.Name.ToUpper().Contains(searchString.ToUpper()) || s.Description.ToUpper().Contains(searchString.ToUpper()));
             }
+            switch (sortOrder)
+            {
+                case "Name_desc":
+                    services = services.OrderByDescending(s => s.Name);
+                    break;
+                case "Date":
+                    services = services.OrderBy(s => s.Description);
+                    break;
+                default:
+                    services = services.OrderBy(s => s.Name);
+                    break;
+            }
+            return View(services.ToList());
         }
-        public ActionResult Meals()
+
+        public ActionResult Meals(string sortOrder, string searchString)
         {
+            ViewBag.NameSortParm = String.IsNullOrEmpty(sortOrder) ? "Name_desc" : "";
+            var services = from s in db.Services
+                           select s;
+            if (!string.IsNullOrEmpty(searchString))
             {
-                return View(db.Services.ToList());
+                services = services.Where(s => s.Name.ToUpper().Contains(searchString.ToUpper()) || s.Description.ToUpper().Contains(searchString.ToUpper()));
             }
+            switch (sortOrder)
+            {
+                case "Name_desc":
+                    services = services.OrderByDescending(s => s.Name);
+                    break;
+                case "Date":
+                    services = services.OrderBy(s => s.Description);
+                    break;
+                default:
+                    services = services.OrderBy(s => s.Name);
+                    break;
+            }
+            return View(services.ToList());
+        }
+        public ActionResult Health(string sortOrder, string searchString)
+        {
+            ViewBag.NameSortParm = String.IsNullOrEmpty(sortOrder) ? "Name_desc" : "";
+            var services = from s in db.Services
+                           select s;
+            if (!string.IsNullOrEmpty(searchString))
+            {
+                services = services.Where(s => s.Name.ToUpper().Contains(searchString.ToUpper()) || s.Description.ToUpper().Contains(searchString.ToUpper()));
+            }
+            switch (sortOrder)
+            {
+                case "Name_desc":
+                    services = services.OrderByDescending(s => s.Name);
+                    break;
+                case "Date":
+                    services = services.OrderBy(s => s.Description);
+                    break;
+                default:
+                    services = services.OrderBy(s => s.Name);
+                    break;
+            }
+            return View(services.ToList());
+        }
+        public ActionResult Diversity(string sortOrder, string searchString)
+        {
+            ViewBag.NameSortParm = String.IsNullOrEmpty(sortOrder) ? "Name_desc" : "";
+            var services = from s in db.Services
+                           select s;
+            if (!string.IsNullOrEmpty(searchString))
+            {
+                services = services.Where(s => s.Name.ToUpper().Contains(searchString.ToUpper()) || s.Description.ToUpper().Contains(searchString.ToUpper()));
+            }
+            switch (sortOrder)
+            {
+                case "Name_desc":
+                    services = services.OrderByDescending(s => s.Name);
+                    break;
+                case "Date":
+                    services = services.OrderBy(s => s.Description);
+                    break;
+                default:
+                    services = services.OrderBy(s => s.Name);
+                    break;
+            }
+            return View(services.ToList());
+        }
+        public ActionResult Jobs(string sortOrder, string searchString)
+        {
+            ViewBag.NameSortParm = String.IsNullOrEmpty(sortOrder) ? "Name_desc" : "";
+            var services = from s in db.Services
+                           select s;
+            if (!string.IsNullOrEmpty(searchString))
+            {
+                services = services.Where(s => s.Name.ToUpper().Contains(searchString.ToUpper()) || s.Description.ToUpper().Contains(searchString.ToUpper()));
+            }
+            switch (sortOrder)
+            {
+                case "Name_desc":
+                    services = services.OrderByDescending(s => s.Name);
+                    break;
+                case "Date":
+                    services = services.OrderBy(s => s.Description);
+                    break;
+                default:
+                    services = services.OrderBy(s => s.Name);
+                    break;
+            }
+            return View(services.ToList());
+        }
+        public ActionResult Legal(string sortOrder, string searchString)
+        {
+            ViewBag.NameSortParm = String.IsNullOrEmpty(sortOrder) ? "Name_desc" : "";
+            var services = from s in db.Services
+                           select s;
+            if (!string.IsNullOrEmpty(searchString))
+            {
+                services = services.Where(s => s.Name.ToUpper().Contains(searchString.ToUpper()) || s.Description.ToUpper().Contains(searchString.ToUpper()));
+            }
+            switch (sortOrder)
+            {
+                case "Name_desc":
+                    services = services.OrderByDescending(s => s.Name);
+                    break;
+                case "Date":
+                    services = services.OrderBy(s => s.Description);
+                    break;
+                default:
+                    services = services.OrderBy(s => s.Name);
+                    break;
+            }
+            return View(services.ToList());
+        }
+        public ActionResult Family(string sortOrder, string searchString)
+        {
+            ViewBag.NameSortParm = String.IsNullOrEmpty(sortOrder) ? "Name_desc" : "";
+            var services = from s in db.Services
+                           select s;
+            if (!string.IsNullOrEmpty(searchString))
+            {
+                services = services.Where(s => s.Name.ToUpper().Contains(searchString.ToUpper()) || s.Description.ToUpper().Contains(searchString.ToUpper()));
+            }
+            switch (sortOrder)
+            {
+                case "Name_desc":
+                    services = services.OrderByDescending(s => s.Name);
+                    break;
+                case "Date":
+                    services = services.OrderBy(s => s.Description);
+                    break;
+                default:
+                    services = services.OrderBy(s => s.Name);
+                    break;
+            }
+            return View(services.ToList());
         }
     }
 }

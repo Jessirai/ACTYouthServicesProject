@@ -1,11 +1,10 @@
 ﻿@model IEnumerable<ACTYouthServicesWeb.Models.Service>
 @{
-    ViewBag.Title = "Meals";
+    ViewBag.Title = "Diversity";
 }
 
-<h2>Meals</h2>
-<p>Services in this catgeory can help young people to find a hot meal or food pantries.</p>
-<!--search bar to find service by search term-->
+<h2>Diversity and Inclusion</h2>
+<p>Services in this catgeory cater to the needs of people who belong to minority groups and promote inclusion and diversity.</p>
 <hr />
 @using (Html.BeginForm())
 {
@@ -15,7 +14,7 @@
     </p>
 }
 <hr />
-@foreach (var item in Model.Where(model => model.Food == true))
+@foreach (var item in Model.Where(model => model.Diversity == true))
 {
     <div class="card">
         <div class="card-body">
@@ -31,4 +30,4 @@
     </div>
 }
 
-<!--Add to favourites-->
+

@@ -225,6 +225,19 @@
     <Content Include="Content\img\familycommunity.png" />
     <Content Include="Content\img\gungahlin.jpg" />
     <Content Include="Content\img\healthwellbeing.png" />
+    <Content Include="Content\img\icons\accessibility.png" />
+    <Content Include="Content\img\icons\address.png" />
+    <Content Include="Content\img\icons\ages.png" />
+    <Content Include="Content\img\icons\cost.png" />
+    <Content Include="Content\img\icons\ctrlD.png" />
+    <Content Include="Content\img\icons\email.png" />
+    <Content Include="Content\img\icons\languages.png" />
+    <Content Include="Content\img\icons\clientele.png" />
+    <Content Include="Content\img\icons\openingHours.png" />
+    <Content Include="Content\img\icons\person.png" />
+    <Content Include="Content\img\icons\phone.png" />
+    <Content Include="Content\img\icons\referral.png" />
+    <Content Include="Content\img\icons\website.png" />
     <Content Include="Content\img\Intertstate\NSW.jpg" />
     <Content Include="Content\img\Intertstate\NT.png" />
     <Content Include="Content\img\Intertstate\QLD.png" />
@@ -325,6 +338,16 @@
     <Content Include="Views\Home\Details.cshtml" />
     <Content Include="Views\Home\Type.cshtml" />
     <Content Include="Views\Home\Location.cshtml" />
+    <Content Include="Views\Home\Health.cshtml" />
+    <Content Include="Views\Home\Diversity.cshtml" />
+    <Content Include="Views\Home\Jobs.cshtml" />
+    <Content Include="Views\Home\Legal.cshtml" />
+    <Content Include="Views\Home\Family.cshtml" />
+    <Content Include="Views\Home\Woden.cshtml" />
+    <Content Include="Views\Home\Tuggeranong.cshtml" />
+    <Content Include="Views\Home\Civic.cshtml" />
+    <Content Include="Views\Home\Gungahlin.cshtml" />
+    <Content Include="Views\Home\Interstate.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

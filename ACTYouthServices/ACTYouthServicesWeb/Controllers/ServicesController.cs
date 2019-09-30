@@ -17,6 +17,7 @@ namespace ACTYouthServicesWeb.Controllers
         // GET: Services
         public ActionResult Index()
         {
+
             return View(db.Services.ToList());
         }
 
@@ -32,7 +33,11 @@ namespace ACTYouthServicesWeb.Controllers
             {
                 return HttpNotFound();
             }
-            return View(service);
+            else
+            {
+                return View(db.Services.ToList());
+            }
+
         }
 
         // GET: Services/Create

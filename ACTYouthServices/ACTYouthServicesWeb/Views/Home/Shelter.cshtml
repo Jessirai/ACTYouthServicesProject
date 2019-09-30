@@ -4,164 +4,28 @@
 }
 
 <h2>Shelter</h2>
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.Name)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Description)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Phone)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Address)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Longitude)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Latitude)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Email)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.OpeningHours)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Shelter)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Food)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Job)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Family)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Legal)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Diversity)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Health)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Location)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Accessability)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Clientele)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Referral)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.MinAge)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.MaxAge)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Cost)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Languages)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Website)
-        </th>
-        <th></th>
-    </tr>
+<p>The following services can provide short or long term accomodation, or provide assistance with finding accomodation.</p>
+<!--Service Cards-->
+<hr />
+<!--search bar to find service by search term-->
+@using (Html.BeginForm())
+{
+    <p>
+        Search for a service @Html.TextBox("SearchString")
+        <input class="mainMap" type="submit" value="Find Services" onclick="showResults" />
+    </p>
+}
+<hr />
+@foreach (var item in Model.Where(model => model.Shelter == true))
+{
+    <div class="card">
+        <div class="card-body">
+            <img class="card-img-top" src="~/Content/img/Types.png" alt="four squares with the top left shaded darker">
+            <h3 class="card-title">@Html.DisplayFor(modelItem => item.Name)</h3>
+            <p class="card-text">@Html.DisplayFor(modelitem => item.Description)</p>
+        </div>
+        <a href="~/Home/Details/@Html.DisplayFor(modelItem => item.ServiceID)" class="btn btn-primary btn-block">Go to @Html.DisplayFor(modelItem => item.Name)'s page </a>
+    </div>
+}
 
-    @foreach (var item in Model.Where(model => model.Shelter == true))
-    {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.Name)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Description)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Phone)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Address)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Longitude)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Latitude)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Email)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.OpeningHours)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Shelter)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Food)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Job)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Family)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Legal)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Diversity)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Health)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Location)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Accessability)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Clientele)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Referral)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.MinAge)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.MaxAge)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Cost)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Languages)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Website)
-            </td>
-            <td>
-                @Html.ActionLink("Edit", "Edit", new { id = item.ServiceID }) |
-                @Html.ActionLink("Details", "Details", new { id = item.ServiceID }) |
-                @Html.ActionLink("Delete", "Delete", new { id = item.ServiceID })
-            </td>
-        </tr>
-    }
-
-</table>
+<!--Add to favourites-->
