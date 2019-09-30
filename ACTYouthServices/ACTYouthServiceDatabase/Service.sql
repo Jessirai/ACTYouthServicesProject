@@ -1,7 +1,7 @@
 ﻿CREATE TABLE [dbo].[Service]
 (
 	[ServiceID] INT IDENTITY (1, 1) NOT NULL, 
-    [Name] NVARCHAR(50) NOT NULL, 
+    [Name] NVARCHAR(100) NOT NULL, 
     [Description] NVARCHAR(MAX) NULL, 
 	[Phone] CHAR(10) NULL, 
 	[Address] NVARCHAR(MAX) NULL,
@@ -16,7 +16,7 @@
     [Legal] BIT NOT NULL, 
     [Diversity] BIT NOT NULL, 
 	[Health] BIT NOT NULL,
-	[Location] CHAR(10) NOT NULL, 
+	[Location] CHAR(15) NOT NULL, 
     [Accessability] VARCHAR(200) NULL, 
     [Clientele] VARCHAR(200) NULL, 
     [Referral] VARCHAR(200) NULL, 
