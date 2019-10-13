@@ -21,7 +21,7 @@ namespace ACTYouthServicesWeb.Controllers
             return View();
         }
         /*import database*/
-        private ACTYouthServicesDatabaseEntities db = new ACTYouthServicesDatabaseEntities();
+        private actyouthservicesdb_Entities db = new actyouthservicesdb_Entities();
 
         /*end of google maps experiment page*/
         public ActionResult Index(string sortOrder, string searchString)
@@ -80,14 +80,14 @@ namespace ACTYouthServicesWeb.Controllers
                     break;
             }
             /*get map*/
-            ACTYouthServicesDatabaseEntities DE = new ACTYouthServicesDatabaseEntities();
+            actyouthservicesdb_Entities DE = new actyouthservicesdb_Entities();
             return View(services.ToList());
         }
         /*controller method to search on map*/
         [HttpPost]
         public ActionResult Search(string Services)
         {
-            ACTYouthServicesDatabaseEntities DE = new ACTYouthServicesDatabaseEntities();
+            actyouthservicesdb_Entities DE = new actyouthservicesdb_Entities();
             var result = DE.Services.Where(x => x.Name.StartsWith(Services)).ToList();
             return Json(result, JsonRequestBehavior.AllowGet);
         }

@@ -13,10 +13,10 @@ namespace ACTYouthServicesWeb.Models
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class ACTYouthServicesDatabaseEntities : DbContext
+    public partial class actyouthservicesdb_Entities : DbContext
     {
-        public ACTYouthServicesDatabaseEntities()
-            : base("name=ACTYouthServicesDatabaseEntities")
+        public actyouthservicesdb_Entities()
+            : base("name=actyouthservicesdb_Entities")
         {
         }
     

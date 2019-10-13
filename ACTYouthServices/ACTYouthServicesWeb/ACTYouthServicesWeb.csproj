@@ -280,6 +280,7 @@
     </Content>
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
+    <Content Include="Scripts\jmelosegui.googlemap.js" />
     <EntityDeploy Include="Models\ACTYouthServicesModel.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
       <LastGenOutput>ACTYouthServicesModel.Designer.cs</LastGenOutput>
@@ -287,7 +288,6 @@
     <Content Include="Models\ACTYouthServicesModel.edmx.diagram">
       <DependentUpon>ACTYouthServicesModel.edmx</DependentUpon>
     </Content>
-    <Content Include="Scripts\jmelosegui.googlemap.js" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
     <Content Include="Scripts\jquery-3.4.1.min.js" />

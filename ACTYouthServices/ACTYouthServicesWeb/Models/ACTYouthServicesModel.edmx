@@ -4,13 +4,13 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="ACTYouthServicesDatabaseModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+      <Schema Namespace="actyouthservicesdb_Model.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="Service">
           <Key>
             <PropertyRef Name="ServiceID" />
           </Key>
           <Property Name="ServiceID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="100" Nullable="false" />
           <Property Name="Description" Type="nvarchar(max)" />
           <Property Name="Phone" Type="char" MaxLength="10" />
           <Property Name="Address" Type="nvarchar(max)" />
@@ -25,7 +25,7 @@
           <Property Name="Legal" Type="bit" Nullable="false" />
           <Property Name="Diversity" Type="bit" Nullable="false" />
           <Property Name="Health" Type="bit" Nullable="false" />
-          <Property Name="Location" Type="char" MaxLength="10" Nullable="false" />
+          <Property Name="Location" Type="char" MaxLength="15" Nullable="false" />
           <Property Name="Accessability" Type="varchar" MaxLength="200" />
           <Property Name="Clientele" Type="varchar" MaxLength="200" />
           <Property Name="Referral" Type="varchar" MaxLength="200" />
@@ -35,20 +35,20 @@
           <Property Name="Languages" Type="varchar(max)" />
           <Property Name="Website" Type="varchar" MaxLength="2083" />
         </EntityType>
-        <EntityContainer Name="ACTYouthServicesDatabaseModelStoreContainer">
+        <EntityContainer Name="actyouthservicesdb_ModelStoreContainer">
           <EntitySet Name="Service" EntityType="Self.Service" Schema="dbo" store:Type="Tables" />
         </EntityContainer>
       </Schema>
     </edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
-      <Schema Namespace="ACTYouthServicesDatabaseModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+      <Schema Namespace="actyouthservicesdb_Model" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
         <EntityType Name="Service">
           <Key>
             <PropertyRef Name="ServiceID" />
           </Key>
           <Property Name="ServiceID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Name" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="Phone" Type="String" MaxLength="10" FixedLength="true" Unicode="false" />
           <Property Name="Address" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
@@ -63,7 +63,7 @@
           <Property Name="Legal" Type="Boolean" Nullable="false" />
           <Property Name="Diversity" Type="Boolean" Nullable="false" />
           <Property Name="Health" Type="Boolean" Nullable="false" />
-          <Property Name="Location" Type="String" MaxLength="10" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="Location" Type="String" MaxLength="15" FixedLength="true" Unicode="false" Nullable="false" />
           <Property Name="Accessability" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
           <Property Name="Clientele" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
           <Property Name="Referral" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
@@ -73,7 +73,7 @@
           <Property Name="Languages" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
           <Property Name="Website" Type="String" MaxLength="2083" FixedLength="false" Unicode="false" />
         </EntityType>
-        <EntityContainer Name="ACTYouthServicesDatabaseEntities" annotation:LazyLoadingEnabled="true">
+        <EntityContainer Name="actyouthservicesdb_Entities" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="Services" EntityType="Self.Service" />
         </EntityContainer>
       </Schema>
@@ -81,9 +81,9 @@
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="ACTYouthServicesDatabaseModelStoreContainer" CdmEntityContainer="ACTYouthServicesDatabaseEntities">
+        <EntityContainerMapping StorageEntityContainer="actyouthservicesdb_ModelStoreContainer" CdmEntityContainer="actyouthservicesdb_Entities">
           <EntitySetMapping Name="Services">
-            <EntityTypeMapping TypeName="ACTYouthServicesDatabaseModel.Service">
+            <EntityTypeMapping TypeName="actyouthservicesdb_Model.Service">
               <MappingFragment StoreEntitySet="Service">
                 <ScalarProperty Name="ServiceID" ColumnName="ServiceID" />
                 <ScalarProperty Name="Name" ColumnName="Name" />

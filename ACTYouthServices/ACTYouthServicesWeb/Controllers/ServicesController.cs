@@ -12,7 +12,7 @@ namespace ACTYouthServicesWeb.Controllers
 {
     public class ServicesController : Controller
     {
-        private ACTYouthServicesDatabaseEntities db = new ACTYouthServicesDatabaseEntities();
+        private actyouthservicesdb_Entities db = new actyouthservicesdb_Entities();
 
         // GET: Services
         public ActionResult Index()
