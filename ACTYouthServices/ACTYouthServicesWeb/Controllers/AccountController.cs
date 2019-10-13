@@ -356,7 +356,7 @@ namespace ACTYouthServicesWeb.Controllers
         {
             if (User.Identity.IsAuthenticated)
             {
-                return RedirectToAction("Index", "Manage");
+                return RedirectToAction("Home", "Manage");
             }
 
             if (ModelState.IsValid)

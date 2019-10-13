@@ -25,6 +25,8 @@ namespace ACTYouthServicesWeb.Models
         {
         }
 
+        public DbSet<Service> Services { get; set; }
+
         public static ApplicationDbContext Create()
         {
             return new ApplicationDbContext();

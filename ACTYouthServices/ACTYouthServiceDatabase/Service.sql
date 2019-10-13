@@ -6,7 +6,7 @@
 	[Phone] CHAR(10) NULL, 
 	[Address] NVARCHAR(MAX) NULL,
 	[Longitude] DECIMAL(9, 6) NOT NULL, 
-    [Latitude] DECIMAL(9, 6) NOT NULL, 
+    [Latitude] DECIMAL(9, 6) NOT NULL,  
 	[Email] VARCHAR(320) NULL, 
 	[OpeningHours] NVARCHAR(MAX) NULL, 
     [Shelter] BIT NOT NULL,     

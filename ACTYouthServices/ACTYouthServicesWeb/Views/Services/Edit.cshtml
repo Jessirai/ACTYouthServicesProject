@@ -80,10 +80,10 @@
                 @Html.ValidationMessageFor(model => model.OpeningHours, "", new { @class = "text-danger" })
             </div>
         </div>
-
+        <hr />
         <div class="form-group">
             @Html.LabelFor(model => model.Shelter, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
+            <div class="category-input">
                 <div class="checkbox">
                     @Html.EditorFor(model => model.Shelter)
                     @Html.ValidationMessageFor(model => model.Shelter, "", new { @class = "text-danger" })
@@ -93,7 +93,7 @@
 
         <div class="form-group">
             @Html.LabelFor(model => model.Food, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
+            <div class="category-input">
                 <div class="checkbox">
                     @Html.EditorFor(model => model.Food)
                     @Html.ValidationMessageFor(model => model.Food, "", new { @class = "text-danger" })
@@ -103,7 +103,7 @@
 
         <div class="form-group">
             @Html.LabelFor(model => model.Job, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
+            <div class="category-input">
                 <div class="checkbox">
                     @Html.EditorFor(model => model.Job)
                     @Html.ValidationMessageFor(model => model.Job, "", new { @class = "text-danger" })
@@ -113,7 +113,7 @@
 
         <div class="form-group">
             @Html.LabelFor(model => model.Family, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
+            <div class="category-input">
                 <div class="checkbox">
                     @Html.EditorFor(model => model.Family)
                     @Html.ValidationMessageFor(model => model.Family, "", new { @class = "text-danger" })
@@ -123,7 +123,7 @@
 
         <div class="form-group">
             @Html.LabelFor(model => model.Legal, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
+            <div class="category-input">
                 <div class="checkbox">
                     @Html.EditorFor(model => model.Legal)
                     @Html.ValidationMessageFor(model => model.Legal, "", new { @class = "text-danger" })
@@ -133,7 +133,7 @@
 
         <div class="form-group">
             @Html.LabelFor(model => model.Diversity, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
+            <div class="category-input">
                 <div class="checkbox">
                     @Html.EditorFor(model => model.Diversity)
                     @Html.ValidationMessageFor(model => model.Diversity, "", new { @class = "text-danger" })
@@ -143,17 +143,17 @@
 
         <div class="form-group">
             @Html.LabelFor(model => model.Health, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
+            <div class="category-input">
                 <div class="checkbox">
                     @Html.EditorFor(model => model.Health)
                     @Html.ValidationMessageFor(model => model.Health, "", new { @class = "text-danger" })
                 </div>
             </div>
         </div>
-
+        <hr />
         <div class="form-group">
             @Html.LabelFor(model => model.Location, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
+            <div class="category-input">
                 @Html.EditorFor(model => model.Location, new { htmlAttributes = new { @class = "form-control" } })
                 @Html.ValidationMessageFor(model => model.Location, "", new { @class = "text-danger" })
             </div>
@@ -161,7 +161,7 @@
 
         <div class="form-group">
             @Html.LabelFor(model => model.Accessability, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
+            <div class="category-input">
                 @Html.EditorFor(model => model.Accessability, new { htmlAttributes = new { @class = "form-control" } })
                 @Html.ValidationMessageFor(model => model.Accessability, "", new { @class = "text-danger" })
             </div>

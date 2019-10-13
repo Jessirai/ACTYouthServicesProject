@@ -26,32 +26,48 @@ textarea {
 .card {
     display: inline-block;
     width: 270px;
-    height: 480px;
-    border:1px solid #770077;
+    height: 380px;
+    border: 1px solid #555555;
+    align-content: center;
+    vertical-align: top;
+    margin: 0.5%;
+    border-radius:10px;
+    /*create 3d shadow effect*/
+    box-shadow: 5px 3px 3px #AAAAAA;
+}
+.locationCard {
+    display: inline-block;
+    width: 270px;
+    height: 380px;
+    border: 1px solid #AAAAAA;
     border-radius: 10px;
     align-content: center;
     vertical-align: top;
     margin: 0.5%;
+    /*create 3d shadow effect*/
+    box-shadow: 5px 3px 3px #AAAAAA;
 }
 
 .btn-block {
-    font-size: 14px;
-    height:55px;
-    width:268px;
-    white-space:normal;
-    color:#FFFFFF;
-    font-size:16px;
-    background-color:#770077;
+    height: 55px;
+    width: 268px;
+    white-space: normal;
+    color: #FFFFFF;
+    font-size: 16px;
+    background-color: #770077;
+    border: 1px solid #000;
     border-top: 1px solid #770077;
-    border-radius:0 0 10px 10px;
-    
+    border-radius: 0 0 10px 10px;
+    /*add 3d effect to buttons*/
+    box-shadow: 5px 3px 3px #AAAAAA;
 }
 
 .card-body {
-    height: 423px;
-    width: 270px;
-    padding: 0 10px 0 10px;
+    height: 323px;
+    width: 260px;
+    padding:0 2px 0 2px;
     text-align: center;
+
 }
 .card-img-top {
     width: 150px;
@@ -62,16 +78,14 @@ textarea {
     background:#FFFFFF;
 }
 .card-title {
-    margin-top: 5px;
+    height:43px;
+    font-size:1.9rem;
     bottom:0;
 }
 .card-text {
-    height:200px;
-    overflow: hidden;
-    text-overflow: ellipsis;
-}
-p {
-
+    text-overflow:ellipsis;
+    overflow:hidden;
+    height: 180px;
 }
 /*Set proppertie of elements in the Create page*/
 /*category checkboxes attributes*/
@@ -92,29 +106,32 @@ p {
     display:block;
 }
 /*Properties of inputs for create page*/
-/*Set the heading of pages to be visible below and not covered by navbar */
-h2{
-    margin-top:60px;
-}
 /*style the navbar area*/
-.navbar{
+.navbar {
     background-color: #550055;
-    height:50px;
+    height: 50px;
 }
 .nav-logo{
     height:50px;
-    display:inline;
+    margin-right:5px;
+    float:left;
 }
-.nav-title{
-    display:inline;
-    position:relative;
+/*properties for page title in nav bar*/
+.nav-title {
+    display: inline;
+    position: relative;
 }
-.navbar-collapse{
+.nav-title-small{
+    display:none;
+}
+.navbar-collapse {
     background-color: #550055;
 }
-.navbar-brand{
-    color:#FFFFFF!important;
-    font-weight:bold;
+/*style the div which contains the logo and title*/
+.navbar-brand {
+    color: #FFFFFF!important;
+    font-weight: bold;
+    font-size: 17px;
 }
 /*style the footer*/
 .nav-item nav-link{
@@ -124,27 +141,59 @@ h2{
 .footerIcon{
     width:30px;
     height:30px;
-    display:inline;
+    margin:10px;
+    /*display:inline; not needed*/
 }
 .footerLink{
-    width:220px;
+    width:260px;
     list-style:none;
     margin:0 0 10px 0;
-    padding-left:1px;
     left:0;
     display:inline-block;
+    border:1px solid #FFFFFF;
+    border-radius:10px;
+
 
 }
 .footerLink p{
     width:150px;
-    display:inline;
+    padding-left:10px;
+    /*display:inline; not needed*/
+
 }
-footer{
+.footer{
     background-color:#FFFFFF;
+    bottom:0;
+    align-items:center;
+    border:none;
+    /*border-bottom:none;*/
+    border-radius:10px;
+}
+.footerText{
+margin:10px 0 30px 10px;
+width:100%;
+align-content:center;
+
 }
 /*style the search bar for main map*/
-.mainMap{
-    
+.servicesMap {
+    height:75vh;
+    width: 100%;
+    /*create 3d shadow effect*/
+    box-shadow: 5px 3px 3px #AAAAAA;
+    border-radius:10px;
+}
+/*create uniform styling for both map class definitions*/
+#googleMap{
+    height: 75vh;
+    width: 100%;
+    /*create 3d shadow effect*/
+    box-shadow: 5px 3px 3px #AAAAAA;
+    border-radius: 10px;
+}
+/*collect like styles for border*/
+.servicesMap, #googleMap, .mapCaption{
+    border:1px solid #222;
 }
 /*style the navbar(dropdown menu)*/
 .dropdown-item {
@@ -156,37 +205,78 @@ footer{
     padding: 10px 0 0 0;
     list-style:none;
 }
-.dropdown-menu{
-    background-color:#FFFFFF;
+/*set background color of entire dropdown menu for all pages in nav*/
+.dropdown-menu {
+    background-color: #707;
+    border-radius:0 0 10px 10px;
+    width: 200px;
 }
-.nav-tabs a{
-    height:50px;
-    white-space:normal;
-    width:150px;
-    display:inline-block;
-
+/*override bootstrap link colors for anchor elements in nav menu*/
+.dropdown-menu li a{
+    color:#FFF!important;
+}
+/*set properties of links in nav menu at top of every page*/
+.navbar-nav a {
+    color: #FFF !important;
+    font-size: 15px;
+    width:68px;
+    /*display:inline;*/
+    text-align:center;
+}
+.navbar-nav{
+    float:right;
+}
+/*properties of category tabs on index page*/
+.nav-tabs a {
+    height: 75px;
+    white-space: normal;
+    font-size: 14px;
+    left: 0;
+    vertical-align: top;
+    width: 100px;
+    display: inline-block;
+    border-radius: 10px;
+    border: 1px solid #000000;
+    padding: 0;
+    margin: 0;
+    line-height:0.9;
 }
 /*Set properties for tiles on home page*/
-.tile{
-    width:250px;
-    height:250px;
-    border:1px solid #880088;
-    left:0;
-    border-radius:10px;
-    display:inline-block;
-    margin:10px;
+.tile {
+    width: 240px;
+    height: 260px;
+    /*create 3d shadow effect*/
+    box-shadow: 5px 3px 3px #AAAAAA;
+    border-radius: 10px;
+    border: 2px solid #000;
+    left: 0;
+    display: inline-block;
+    margin: 5px;
+    text-align:center;
 }
-.tile-button{
-    width:230px;
-    height:40px;
-    margin:0;
-    padding:0;
-    float:left;
-    border:1px solid #880088;
-    border-radius:10px;
-    background-color:#990099;
-    color:#FFFFFF;
-
+/*apply border radius to elements where required*/
+.tile, .filters, .mapCaption {
+    border-radius: 10px;
+}
+.tile p{
+    margin: 0 5px 0 5px;
+}
+/*set hover colour to be same*/
+.tile-button:hover{
+   color:#FFF;
+}
+.tile-button {
+    width: 220px;
+    height: 40px;
+    margin: 0 7px 0 7px;
+    padding: 0;
+    float: left;
+    border: 2px solid #000;
+    border-radius: 10px;
+    background-color: #990099;
+    color: #FFFFFF;
+    /*add 3d effect to buttons*/
+    box-shadow: 5px 3px 3px #AAAAAA;
 }
 .tile-title{
     white-space:normal;
@@ -194,52 +284,71 @@ footer{
     width:230px;
 }
 .tile-text {
-    height: 80px;
-    width: 230px;
+    height: 95px;
+    width: 97%;
     overflow: hidden;
     text-overflow:ellipsis;
+    margin:0;
 }
 /*make service's page responsive (columns)*/
 .ServiceDetails{
-    width: 48.5%;
-    height:400px;
-    display: inline-block;
+    width: 99%;
+    display:inline-block;
     vertical-align:top;
+    padding:1%;
+    /*float:left; not needed*/
+}
+.ServiceDetails p{
+    display:inline-block;
 }
 .ServiceAccessibility {
-    width: 48.5%;
-    height: 450px;
+    width: 99%;
     display: inline-block;
-    vertical-align: top;
-    /*create vertical divider between contact and access details*/
-    border-left: 1px solid #990099;
-    margin-left: 10px;
-    padding-left: 10px;
-    right: 0;
+    vertical-align:top;
+    padding:1%;
 }
 
 /*set properties of map within iframe element*/
 .iframeMap{
-    height:70vh;
+    height:35vh;
     width:100%;
+    /*display:inline; not needed*/
+    border-radius:10px;
+    box-shadow: 5px 3px 3px #AAAAAA;
 }
+/*set thead width of the div containing the service map stop half*/
+.map-responsive{
+    width:49%;
+    /*display:inline-block; not needed*/
+    padding:1%;
+    float:right;
+
+}
+.details-responsive{
+    width:49%;
+    display:inline-block;
+    border-right:1px solid #707;
+}
+
 /* properties of buttons at bottom of individual service's page*/
 #ServicePageButton {
     width: 40%;
-    height:50px;
+    height: 50px;
     margin: 0 4.5% 0 4.5%;
-    padding:0;
-    vertical-align:top;
-    border:2px solid #000000;
-    border-radius:10px;
-    background-color:#770077;
-    color:#FFFFFF;
+    padding: 0;
+    vertical-align: top;
+    border: 2px solid #000000;
+    border-radius: 10px;
+    background-color: #770077;
+    color: #FFFFFF;
+    /*create 3d shadow effect*/
+    box-shadow: 5px 3px 3px #AAAAAA;
 }
-/*properties of icons used to give meaning to text*/
-.textIcon{
+    /*properties of icons used to give meaning to text*/
+    .textIcon{
     height:30px;
     width:30px;
-    display:inline;
+    /*display:inline; not needed*/
     margin:5px 5px 0 0;
 }
 .ServiceAccessibility p, strong{
@@ -253,37 +362,73 @@ footer{
     width:79%;
     display:inline-block;
 }
-.filters{
-    width:20%;
-    height:100%;
-    display:inline-block;
-    border-bottom:1px solid #770077;
-    vertical-align:top;
+.filters {
+    width: 20%;
+    height: 100%;
+    display: inline-block;
+    /*create 3d shadow effect*/
+    box-shadow: 5px 3px 3px #AAAAAA;
+    border-radius: 10px;
+    vertical-align: top;
+    background-color: #FFFFFF;
+    border: 2px solid #000;
+    /*border-radius: 10px; not needed declared earlier*/
+    /*    margin-top:60px;*/
+}
+/*indent filters on location and category pages*/
+.filters input{
+    margin-left:10px;
+    border-radius:5px;
+}
+.filters inputButton{
+    margin:2%;
+    border:2px solid #000;
+    border-radius:10px;
+}
+/*indent filter headings on category and location pages*/
+.filters h4, p{
+    margin-left:5px;
+}
+/*Style the heading in the filters menu on the left*/
+.filters h3{
+    background-color: #EEEEEE;
+    width:100%;
+    height:55px;
+    border-radius:10px 10px 0 0;
+    padding:0;
+    margin:0;
+    text-align:center;
+    vertical-align:unset;
+    border-bottom: 2px solid #000;
+
 }
 /*change certain properties when screen becomes too small*/
-@media only screen and (max-width: 700px) {
+@media only screen and (max-width: 850px) {
     .ServiceAccessibility {
         border-left: none;
         margin-left: 0;
         padding-left: 0;
+        /*
         display: block;
+        width: 100%;
+        */
+    }
+
+    .results, serviceAccessibility, .filters {
+        display:block;
         width: 100%;
     }
 
-    .results {
-        display:inline-block;
-        height:0;
-        width: 80%;
-    }
-
     .filters {
-        width: 200%;
-        height:100px;
-        display: inline-block;
+        /*width: 100%; was duplicate*/
+        height: 100%;
+        /*display: block; was duplicate*/
         /*remove left border line*/
-        border:none;
+        border: none;
         /*put line at bottom*/
-        border-bottom:1px solid #770077;
+        border: 1px solid #000;
+        border-radius:10px;
+        margin-top: 0;
     }
 
     .ServiceDetails {
@@ -292,11 +437,348 @@ footer{
     }
 
     #ServicePageButton {
-        font-size: 3vw;
+        font-size: 1.7rem;
+        line-height:0.90;
     }
+    /*make filters div higher, so that heading text is able to be display multiline*/
+    .filters h3{
+        height:35px;
+    }
+    /*make both details and map 100% width on smaller viewports*/
+    .details-responsive{
+        width:100%;
+        border:none;
+    }
+    .map-responsive{
+        width:100%;
+        border-bottom:1px solid #DDD;
+    }
+    /*display shortened titled in smaller viewports*/
+    .nav-title-small {
+        display: inline;
+    }
+    /*hide div with larger title in smaller viewports*/
+    .nav-title{
+        display:none;
+    }
+}
+/*style <input> buttons*/
+.inputButton{
+    width:92%;
+    /*left margin is set to zero because it is already set to 10px under ".filters input{} style*/
+    margin:0 10px 10px 0;
+    height:30px;
+    border-radius:10px;
+    background-color:#EEEEEE;
+}
+.inputButton:hover{
+    background-color:#CCC;
 }
 /*set properties for filter links*/
 .filter{
     display:block;
     
+}
+/*properties of search box in category/location menus*/
+.SearchBox{
+    overflow:hidden;
+}
+/*properties of small icons used to identify category(s) of services, on their cards*/
+.multiIcon{
+    margin:10px 0 10px 0;
+    height:40px;
+    width:40px;
+    width:40px;
+    /*display:inline; not needed*/
+    align-content:center;
+}
+/*highlight multiicon when hovered*/
+.multiIcon :hover{
+    opacity:0.5;
+}
+/*properties for search bar on main page*/
+.mainSearch{
+    width:100%;
+}
+
+.nav-tabs li {
+    box-shadow: 5px 0 0  #AAAAAA;
+    border-radius:10px 10px 0 0;
+    width:14%;
+    padding:0;
+    margin:0;
+    
+}
+.mapCaption {
+    margin-top:10px;
+    padding:5px;
+    border: 1px solid #555555;
+    border-radius:10px;
+    border-top: none;
+    font-size: 1.5rem;
+    /*create 3d shadow effect*/
+    box-shadow: 5px 3px 3px #AAAAAA;
+}
+/*set properties for hamburger icon*/
+.hamburger{
+    height:35px;
+    width:35px;
+    vertical-align:central;
+    margin:0 5px 0 5px ;
+    float:right;
+}
+/*indent website text on individual services' page*/
+.websiteText{
+    margin-left:38px; 
+}
+/*make paragraph not exceed bounds of parent element in tiles*/
+.tile p {
+    width: 95%;
+}
+/*cards responsive, especially on smaller devices*/
+@media only screen and (max-width: 585px) {
+    .locationCard{
+        width:100%;
+        height:200px;
+        margin-bottom:10px
+    }
+    .card{
+            width:100%;
+        height:200px;
+        margin-bottom:10px
+    }
+    .card a{
+        width:100%;
+        height:55px;
+        padding-bottom:10px;
+    }
+    .card-body{
+        padding:0;
+        width:100%;
+        height:150px;
+    }
+    .card-text{
+        height:100px;
+        display:inline-block;
+    }
+    .card-img-top{
+        height:150px;
+        /*display:inline; not needed*/
+        float:left;
+        padding:0;
+        margin:0;
+        border-radius:10px 0 0 0;
+    }
+    .card-title{
+        height:50px;
+        /*display:inline; not needed*/
+        width:100%;
+    }
+    /*remove white space from around icons next to services' names*/
+    .multiIcon{
+        padding:0;
+        margin:0;
+        height:30px;
+        width:30px;
+    }
+    .locationCard a{
+        width:100%;
+        height:55px;
+        padding-bottom:10px;
+
+    }
+    /*set responsive properties for tiles on home page*/
+    .tile-button{
+        width:97%;
+        height:50px;
+        /*remove margin and padding before defining*/
+        padding:0;
+        margin:0;
+        margin:0 1.5% 0 1.5%;
+    }
+    .tile{
+        width:100%;
+        height:175px;
+        display:block;
+        padding:0;
+    }
+
+    .tile-title{
+        margin:0;
+        width:100%;
+        height:34px;
+    }
+    .tile-text{
+        margin:0;
+/*        width:97%;*/
+        height:55px;
+        text-align:center;
+        font-size:13px;
+    }
+    /*make paragraph fit within parent*/
+    .tile p {
+        width: 97%;
+        margin: 0 1.5% 0 1.5%;
+    }
+    h5{
+        width:100%;
+        height:14px;
+       margin:0 0.5% 0 0.5%;
+        display:block;
+        font-size:14px;
+    }
+    a:hover{
+        color:#FFFFFF;
+    }
+    /*make buttons in services' individual pages responsive*/
+    #ServicePageButton{
+        width:90%;
+        margin:1% 5% 1% 5%;
+        display:block;
+    }
+    /*make tab markers not as tall in smaller viewports*/
+    #mobileTab{
+        height: 45px;
+    }
+    #mobileTab a{
+        height: 45px;
+    }
+
+}
+/*set styles of catgeory tabs on index page*/
+#mobileTab a{
+    /*allow height to be set*/
+    display:block;
+    /*override bootstrap with !important to make button push past bounds of tab to show current tab*/
+    height:50px!important;
+    width:100%;
+    border-radius:10px 10px 0 0;
+    /*set links to black text*/
+    color:#000;
+}
+
+/*set the color of the active tab*/
+.nav .active a{
+    background-color:#FFF;
+
+}
+#mobileTab{
+    background-color:#BBB;
+    border:1px solid #000;
+    padding:0;
+    height:50px;
+    vertical-align:top;
+}
+    #mobileTab :hover {
+        background-color: #909;
+        color:#FFF;
+        border-bottom: 2px double #909;
+    }
+
+
+
+/*media query to make service category tabs on home page responsive on smaller devices*/
+@media only screen and (max-width: 760px) {
+    #mobileTab{
+        width: 100%;
+        border: 2px solid #000;
+        border-radius:10px;
+        margin-bottom: 5px;
+        box-shadow: none;
+    }
+
+    
+    /*properties of category tabs on index page*/
+    #mobileTab a{
+        display:inline-block;
+        width: 100%;
+        /*height:45px!important;repitition of earlier definition of same style*/
+        color: #000;
+        height: 40px;
+        border-radius: 10px;
+
+    }
+
+    #mobileTab :hover{
+        border:none;
+        border-radius:10px;
+        height:45px;
+
+    }
+
+    #categoriesMain ul{
+        border:2px solid #000;
+        background-color:#707;
+        padding:5px;
+        border-radius:10px;
+        border-bottom:none;
+        color:#000;
+    }
+}
+/*style of image on about page*/
+.about-image{
+    width:50%;
+    margin-left:25%;
+}
+/*style the button on the index page which links the user to the services menu page*/
+.btn-index {
+    width: 150px;
+    height: 40px;
+    display: block;
+    color: #FFF;
+    background-color: #707;
+    font-size: 16px;
+    padding: 5px 5px 5px 5px;
+    border: 1px solid #000;
+    border-radius: 10px;
+}
+.btn-index:hover{
+    background-color:#505;
+    color:#FFF;
+}
+
+/*style the dropdown menu on the navbar*/
+.nav-link{
+    /*this is set to be black in the bootstrap stylesheet and so the !importnat tag needs to be applied, to override this.*/
+    background-color:#505!important;
+}
+/*style contact form API iFrame*/
+.contact-form {
+    width: 100%;
+    min-height: 700px;
+    border-radius: 10px;
+    box-shadow: 5px 3px 3px #AAAAAA;
+}
+/*set properties of contact details of northside in the contact us page*/
+.northside-contact{
+    display:inline-block;
+    margin-right:30px;
+}
+/*remove inline styles from contact us iframe*/
+.contact-form {
+    min-height:750px;
+    height:inherit;
+    overflow:auto;
+    
+}
+/*properties of form groups in create/edit/delete pages*/
+
+.category-input{
+    display:inline-block;
+    margin-left:10px;
+    vertical-align:bottom;
+}
+.form-group{
+    display:inline;
+}
+/*set properties of description in services database view*/
+.serviceDescriptionTable, .serviceHoursTable{
+    height:75px;
+    overflow:hidden;
+    text-overflow:ellipsis;
+    display:block;
+    white-space:unset;
+    width:250px;
+    height:150px;
+
 }

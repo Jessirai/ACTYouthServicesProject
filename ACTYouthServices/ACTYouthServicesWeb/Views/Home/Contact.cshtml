@@ -1,23 +1,52 @@
 ﻿@{
     ViewBag.Title = "Contact";
 }
+<!--embed analytics-->
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-147750347-1"></script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag('js', new Date());
+
+    gtag('config', 'UA-147750347-1');
+</script>
 <h2>@ViewBag.Title Us</h2>
 <h3>Use the form below to get in contact with the ACT Youth Homelessness Services Directory.</h3>
-<p>Insert contact us form</p>
+<!-- www.123formbuilder.com script begins here -->
+<iframe title="content" class="contact-form" allowTransparency="true" id="contactform123" name="contactform123" marginwidth="0" marginheight="0" frameborder="0" src="//www.123formbuilder.com/my-contact-form-5036231.html">
+    <!--
+        <p>Your browser does not support iframes. The contact form cannot be displayed. Please use another contact method (phone, fax etc)</p>
+
+    -->
+</iframe><!-- www.123formbuilder.com script ends here -->
 <hr />
 <h3>Alternatively, you can contact Northside Community Service via email, phone, post, or visit our office.</h3>
-<p>You can email us directly at <a href="mailto:reception@northside.asn.au">reception@northside.asn.au</a>.</p>
-<p>
-    Head Office<br />
-    2 Rosevear Place<br />
-    Dickson&nbsp; ACT&nbsp; 2602
-</p>
-<div id="googleMap" style="width:100%;height:70vh;"></div>
+<div class="northside-contact">
+    <h4>Head Ofice</h4>
+    <img src="~/Content/img/Locations.png" class="textIcon" alt=" a black and white icon of a map pointer."/>
+    <p class="northside-contact">2 Rosevear Place, Dickson ACT 2602</p>
+</div>
+<div class="northside-contact">
+    <img src="~/Content/img/icons/phone.png" class="textIcon" alt="a black and white icon of a telephone." />
+    <p class="northside-contact">02 6171 8000</p>
+</div>
+<div class="northside-contact">
+    <img src="~/Content/img/icons/email.png" class="textIcon" alt="a black and white icon of an ampersand, or email symbol."/>
+    <p class="northside-contact"><a href="mailto: y.engage@northside.asn.au">y.engage@northside.asn.au</a></p>
+</div>
+<div class="northside-contact">
+    <img src="~/Content/img/icons/mail.png" class="textIcon" alt="A black and white icon of an envelope"/>
+         <p class="northside-contact">PO Box Dickson ACT 2602</p>
+</div>
+<hr />
+<!--display location on google map-->
+<div id="googleMap"></div>
 
 <script>
     function myMap() {
         var mapProp = {
-            center: new google.maps.LatLng(- 35.249425, 149.143374), 
+            center: new google.maps.LatLng(- 35.249425, 149.143374),
             zoom: 14,
         };
         var myLatLng = { lat: -35.249425, lng: 149.143374 };
@@ -30,16 +59,16 @@
 
         marker.setMap(map);
         var map = new google.maps.Map(document.getElementById("googleMap"), mapProp);
-                    /*plot markers for services*/
-            var marker = new google.maps.Marker({
-                position: {
-                    lat: -35.249425,
-                    lng: 149.143374
-                },
-                map: map,
-                title: 'Northside Community Service'
+        /*plot markers for services*/
+        var marker = new google.maps.Marker({
+            position: {
+                lat: -35.249425,
+                lng: 149.143374
+            },
+            map: map,
+            title: 'Northside Community Service'
 
-            });
+        });
         var contentString = 'Northside Community Service';
         var infowindow = new google.maps.InfoWindow({
             content: contentString
@@ -54,9 +83,7 @@
 
 
 
-<p>PO Box 453</p>
-<p>Dickson ACT 2602</p>
-<p>Telephone: 02 6171 8000</p>
-<p>&nbsp;</p>
+
+
 
 

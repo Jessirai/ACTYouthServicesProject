@@ -2,7 +2,17 @@
 @{
     ViewBag.Title = "Type";
 }
+<!--embed analytics-->
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-147750347-1"></script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag('js', new Date());
 
+    gtag('config', 'UA-147750347-1');
+</script>
+<!--start content-->
 <h2>Find services by their category</h2>
 <hr />
 <div class="card">
@@ -29,14 +39,14 @@
     </div>
     <a href="~/Home/Diversity" class="btn btn-primary btn-block">Find Diversity and Inclusion Services</a>
 </div>
-      <div class="card">
-          <div class="card-body">
-              <img class="card-img-top" src="~/Content/img/jobsemployment.png" alt="A black map marker icon">
-              <h3 class="card-title">Jobs and Employment</h3>
-              <p class="card-text">Sercices in this category can help a young person to become employed or get the skills and support that they need to become employed</p>
-          </div>
-          <a href="~/Home/Jobs" class="btn btn-primary btn-block">Find Jobs and Employment Services</a>
-      </div>
+<div class="card">
+    <div class="card-body">
+        <img class="card-img-top" src="~/Content/img/jobsemployment.png" alt="A black map marker icon">
+        <h3 class="card-title">Jobs and Employment</h3>
+        <p class="card-text">Sercices in this category can help a young person to become employed or get the skills and support that they need to become employed</p>
+    </div>
+    <a href="~/Home/Jobs" class="btn btn-primary btn-block">Find Jobs and Employment Services</a>
+</div>
 <div class="card">
     <div class="card-body">
         <img class="card-img-top" src="~/Content/img/legalfinancialicon.png" alt="four squares with the top left shaded darker">
@@ -45,14 +55,14 @@
     </div>
     <a href="~/Home/Legal" class="btn btn-primary btn-block">Find services by type</a>
 </div>
-      <div class="card">
-          <div class="card-body">
-              <img class="card-img-top" src="~/Content/img/healthwellbeing.png" alt="A black map marker icon">
-              <h3 class="card-title">Health and Wellbeing</h3>
-              <p class="card-text">Services in this category can help young people to cater to their health needs, both mental and physical, and promote wellbeing.</p>
-          </div>
-          <a href="~/Home/Health" class="btn btn-primary btn-block">Find Health and Wellbeing Services</a>
-      </div>
+<div class="card">
+    <div class="card-body">
+        <img class="card-img-top" src="~/Content/img/healthwellbeing.png" alt="A black map marker icon">
+        <h3 class="card-title">Health and Wellbeing</h3>
+        <p class="card-text">Services in this category can help young people to cater to their health needs, both mental and physical, and promote wellbeing.</p>
+    </div>
+    <a href="~/Home/Health" class="btn btn-primary btn-block">Find Health and Wellbeing Services</a>
+</div>
 <div class="card">
     <div class="card-body">
         <img class="card-img-top" src="~/Content/img/familycommunity.png" alt="four squares with the top left shaded darker">
@@ -61,5 +71,4 @@
     </div>
     <a href="~/Home/Family" class="btn btn-primary btn-block">Find Family and Community Services</a>
 </div>
-
 

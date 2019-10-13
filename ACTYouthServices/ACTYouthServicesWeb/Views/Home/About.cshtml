@@ -1,7 +1,44 @@
-﻿@{
+﻿<!--declarations for google map dynamic markers-->
+@using System.Drawing
+@using Jmelosegui.Mvc.GoogleMap
+@model IEnumerable<ACTYouthServicesWeb.Models.Service>
+
+@{
     ViewBag.Title = "About";
 }
-<h2>@ViewBag.Title.</h2>
-<h3>@ViewBag.Message</h3>
-
-<p>Use this area to provide additional information.</p>
+<h2>About the ACT Youth Homelessness Services Directory</h2>
+<p>
+    The ACT Youth Homelessness Services Directory is a project which was undertaken
+    by students at the university of Canberra, as a capstone project. The project
+    was overseen and sponsored by the Northside Community Service Youth Engagement
+    team. The project was created in response to the lack of information and
+    awareness for service providers which can assist homeless and at-risk youths in the
+    Australian Capital Territory, in their times of needs.
+</p>
+<p>
+    We understand that when a person is in a position where they are at risk of becoming
+    homeless, or are already homeless, it can be hard to find help or connect with the
+    organisations who can help you. When you are a young person, who does not neccesarily
+    have a wealth of life experience and skills, this issue can be made even worse. This
+    perhaps, could explain why in the ACT, more than 42% of homeless people are below the
+    age of 25.
+</p>
+<p>
+    Although young people are by far the largest demographic represented in the homeless
+    population, homeless people are often generalised as being middle-aged men who are
+    sleeping rough. Because of this stigma, young people who are classified as being
+    homeless are sometimes embarrassed or reluctant to seek assistance from specialist
+    homelessness services and are at real risk of becoming chronically homeless.
+</p>
+<p>
+    The ACT Youth Homelessness Services Directory was developed with the aim or
+    allowing young people in the ACT, who are Homeless or at-risk of Homelessness
+    to find and connect with community service providers, who can assist in their
+    time of great need.
+</p>
+<p>
+    Northside Community Service, the projects sponsor, have an aim of ending homelessness
+    in the ACT. The ACT Youth Homelessness Services Directory, hope that the benefits from 
+    this website can help them towards this goal.
+</p>
+<img class="about-image" src="~/Content/img/NorthsideEndingHomelessness.png" alt="Banner image from northside community service showing an birds eye view of canberra, with text reading'ending homelessness'"/>
