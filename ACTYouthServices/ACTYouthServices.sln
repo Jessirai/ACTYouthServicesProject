@@ -12,6 +12,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 		.a11yrc = .a11yrc
 	EndProjectSection
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PasswordHasher", "PasswordHasher\PasswordHasher.csproj", "{2D4DF9C3-D9E8-4154-946A-490BC8E0A2A3}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -28,6 +30,10 @@ Global
 		{1A0FAC20-BF16-464D-9B67-2903FCB7BFCC}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{1A0FAC20-BF16-464D-9B67-2903FCB7BFCC}.Release|Any CPU.Build.0 = Release|Any CPU
 		{1A0FAC20-BF16-464D-9B67-2903FCB7BFCC}.Release|Any CPU.Deploy.0 = Release|Any CPU
+		{2D4DF9C3-D9E8-4154-946A-490BC8E0A2A3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2D4DF9C3-D9E8-4154-946A-490BC8E0A2A3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2D4DF9C3-D9E8-4154-946A-490BC8E0A2A3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2D4DF9C3-D9E8-4154-946A-490BC8E0A2A3}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

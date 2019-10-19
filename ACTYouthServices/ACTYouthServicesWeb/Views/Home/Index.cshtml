@@ -123,7 +123,8 @@
 
             google.maps.event.addListener(marker, 'click', (function (marker, i) {
                 return function () {
-                    infowindow.setContent(locations[i][0]);
+                    infowindow.setContent(
+                        '<a href="/Services/Index/?name=' + locations[i][0] + '" class="tile-button">' +locations[i][0] + '</a>');
                     infowindow.open(map, marker);
                 }
             })(marker, i));
@@ -295,7 +296,7 @@
                         <p class="tile-text">@Html.DisplayFor(modelitem => item.Description)</p>
                         <h5>@Html.DisplayNameFor(model => model.Phone): @Html.DisplayFor(modelItem => item.Phone)</h5>
                         <h5>@Html.DisplayNameFor(model => model.Location): @Html.DisplayFor(modelItem => item.Location)</h5>
-                        <a href="~/Home/Details/@Html.DisplayFor(modelItem => item.ServiceID)" class="tile-button">Go to @Html.DisplayFor(modelItem => item.Name)'s page </a>
+                        <a href="~/Services/Index/@Html.DisplayFor(modelItem => item.ServiceID)" class="tile-button">Go to @Html.DisplayFor(modelItem => item.Name)'s page </a>
                     </div>
                 }
             </div>
@@ -308,7 +309,7 @@
                         <p class="tile-text">@Html.DisplayFor(modelitem => item.Description)</p>
                         <h5>@Html.DisplayNameFor(model => model.Phone): @Html.DisplayFor(modelItem => item.Phone)</h5>
                         <h5>@Html.DisplayNameFor(model => model.Location): @Html.DisplayFor(modelItem => item.Location)</h5>
-                        <a href="~/Home/Details/@Html.DisplayFor(modelItem => item.ServiceID)" class="tile-button">Go to @Html.DisplayFor(modelItem => item.Name)'s page </a>
+                        <a href="~/Services/Index/@Html.DisplayFor(modelItem => item.ServiceID)" class="tile-button">Go to @Html.DisplayFor(modelItem => item.Name)'s page </a>
                     </div>
                 }
             </div>
@@ -321,7 +322,7 @@
                         <p class="tile-text">@Html.DisplayFor(modelitem => item.Description)</p>
                         <h5>@Html.DisplayNameFor(model => model.Phone): @Html.DisplayFor(modelItem => item.Phone)</h5>
                         <h5>@Html.DisplayNameFor(model => model.Location): @Html.DisplayFor(modelItem => item.Location)</h5>
-                        <a href="~/Home/Details/@Html.DisplayFor(modelItem => item.ServiceID)" class="tile-button">Go to @Html.DisplayFor(modelItem => item.Name)'s page </a>
+                        <a href="~/Services/Index/@Html.DisplayFor(modelItem => item.ServiceID)" class="tile-button">Go to @Html.DisplayFor(modelItem => item.Name)'s page </a>
                     </div>
                 }
             </div>
@@ -334,7 +335,7 @@
                         <p class="tile-text">@Html.DisplayFor(modelitem => item.Description)</p>
                         <h5>@Html.DisplayNameFor(model => model.Phone): @Html.DisplayFor(modelItem => item.Phone)</h5>
                         <h5>@Html.DisplayNameFor(model => model.Location): @Html.DisplayFor(modelItem => item.Location)</h5>
-                        <a href="~/Home/Details/@Html.DisplayFor(modelItem => item.ServiceID)" class="tile-button">Go to @Html.DisplayFor(modelItem => item.Name)'s page </a>
+                        <a href="~/Services/Index/@Html.DisplayFor(modelItem => item.ServiceID)" class="tile-button">Go to @Html.DisplayFor(modelItem => item.Name)'s page </a>
                     </div>
                 }
             </div>
@@ -347,7 +348,7 @@
                         <p class="tile-text">@Html.DisplayFor(modelitem => item.Description)</p>
                         <h5>@Html.DisplayNameFor(model => model.Phone): @Html.DisplayFor(modelItem => item.Phone)</h5>
                         <h5>@Html.DisplayNameFor(model => model.Location): @Html.DisplayFor(modelItem => item.Location)</h5>
-                        <a href="~/Home/Details/@Html.DisplayFor(modelItem => item.ServiceID)" class="tile-button">Go to @Html.DisplayFor(modelItem => item.Name)'s page </a>
+                        <a href="~/Services/Index/@Html.DisplayFor(modelItem => item.ServiceID)" class="tile-button">Go to @Html.DisplayFor(modelItem => item.Name)'s page </a>
                     </div>
                 }
             </div>
@@ -360,7 +361,7 @@
                         <p class="tile-text">@Html.DisplayFor(modelitem => item.Description)</p>
                         <h5>@Html.DisplayNameFor(model => model.Phone): @Html.DisplayFor(modelItem => item.Phone)</h5>
                         <h5>@Html.DisplayNameFor(model => model.Location): @Html.DisplayFor(modelItem => item.Location)</h5>
-                        <a href="~/Home/Details/@Html.DisplayFor(modelItem => item.ServiceID)" class="tile-button">Go to @Html.DisplayFor(modelItem => item.Name)'s page </a>
+                        <a href="~/Services/Index/@Html.DisplayFor(modelItem => item.ServiceID)" class="tile-button">Go to @Html.DisplayFor(modelItem => item.Name)'s page </a>
                     </div>
                 }
             </div>
@@ -373,7 +374,7 @@
                         <p class="tile-text">@Html.DisplayFor(modelitem => item.Description)</p>
                         <h5>@Html.DisplayNameFor(model => model.Phone): @Html.DisplayFor(modelItem => item.Phone)</h5>
                         <h5>@Html.DisplayNameFor(model => model.Location): @Html.DisplayFor(modelItem => item.Location)</h5>
-                        <a href="~/Home/Details/@Html.DisplayFor(modelItem => item.ServiceID)" class="tile-button">Go to @Html.DisplayFor(modelItem => item.Name)'s page </a>
+                        <a href="~/Services/Index/@Html.DisplayFor(modelItem => item.ServiceID)" class="tile-button">Go to @Html.DisplayFor(modelItem => item.Name)'s page </a>
                     </div>
                 }
             </div>

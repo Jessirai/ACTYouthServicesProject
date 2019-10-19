@@ -182,13 +182,14 @@
   <ItemGroup>
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
-    <Compile Include="App_Start\IdentityConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\AdminController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
-    <Compile Include="Controllers\ManageController.cs" />
+    <Compile Include="Controllers\LocationController.cs" />
     <Compile Include="Controllers\ServicesController.cs" />
+    <Compile Include="Controllers\CategoriesController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -208,11 +209,13 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>ACTYouthServicesModel.edmx</DependentUpon>
     </Compile>
-    <Compile Include="Models\IdentityModels.cs" />
-    <Compile Include="Models\ManageViewModels.cs" />
+    <Compile Include="Models\Location.cs" />
+    <Compile Include="Models\Metadata.cs" />
+    <Compile Include="Models\PartialClasses.cs" />
     <Compile Include="Models\Service.cs">
       <DependentUpon>ACTYouthServicesModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\ServicesDatabaseHelper.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
   </ItemGroup>
@@ -318,54 +321,35 @@
     <Content Include="Views\Home\About.cshtml" />
     <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
-    <Content Include="Views\Account\_ExternalLoginsListPartial.cshtml" />
-    <Content Include="Views\Account\ConfirmEmail.cshtml" />
-    <Content Include="Views\Account\ExternalLoginConfirmation.cshtml" />
-    <Content Include="Views\Account\ExternalLoginFailure.cshtml" />
-    <Content Include="Views\Account\ForgotPassword.cshtml" />
-    <Content Include="Views\Account\ForgotPasswordConfirmation.cshtml" />
     <Content Include="Views\Account\Login.cshtml" />
-    <Content Include="Views\Account\Register.cshtml" />
-    <Content Include="Views\Account\ResetPassword.cshtml" />
-    <Content Include="Views\Account\ResetPasswordConfirmation.cshtml" />
-    <Content Include="Views\Account\SendCode.cshtml" />
-    <Content Include="Views\Account\VerifyCode.cshtml" />
-    <Content Include="Views\Manage\AddPhoneNumber.cshtml" />
-    <Content Include="Views\Manage\ChangePassword.cshtml" />
-    <Content Include="Views\Manage\Index.cshtml" />
-    <Content Include="Views\Manage\ManageLogins.cshtml" />
-    <Content Include="Views\Manage\SetPassword.cshtml" />
-    <Content Include="Views\Manage\VerifyPhoneNumber.cshtml" />
     <Content Include="Views\Shared\Lockout.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
-    <Content Include="Views\Services\Create.cshtml" />
-    <Content Include="Views\Services\Delete.cshtml" />
-    <Content Include="Views\Services\Details.cshtml" />
-    <Content Include="Views\Services\Edit.cshtml" />
-    <Content Include="Views\Services\Index.cshtml" />
+    <Content Include="Views\Admin\Create.cshtml" />
+    <Content Include="Views\Admin\Delete.cshtml" />
+    <Content Include="Views\Admin\Edit.cshtml" />
+    <Content Include="Views\Admin\Index.cshtml" />
     <Content Include="Views\Home\ServicesMenu.cshtml" />
-    <Content Include="Views\Home\Belconnen.cshtml" />
-    <Content Include="Views\Home\Shelter.cshtml" />
-    <Content Include="Views\Home\Meals.cshtml" />
+    <Content Include="Views\Location\Belconnen.cshtml" />
+    <Content Include="Views\Categories\Shelter.cshtml" />
+    <Content Include="Views\Categories\Meals.cshtml" />
     <Content Include="Views\Home\Details.cshtml" />
-    <Content Include="Views\Home\Type.cshtml" />
-    <Content Include="Views\Home\Location.cshtml" />
-    <Content Include="Views\Home\Health.cshtml" />
-    <Content Include="Views\Home\Diversity.cshtml" />
-    <Content Include="Views\Home\Jobs.cshtml" />
-    <Content Include="Views\Home\Legal.cshtml" />
-    <Content Include="Views\Home\Family.cshtml" />
-    <Content Include="Views\Home\Woden.cshtml" />
-    <Content Include="Views\Home\Tuggeranong.cshtml" />
-    <Content Include="Views\Home\Civic.cshtml" />
-    <Content Include="Views\Home\Gungahlin.cshtml" />
+    <Content Include="Views\Categories\Index.cshtml" />
+    <Content Include="Views\Location\Index.cshtml" />
+    <Content Include="Views\Categories\Health.cshtml" />
+    <Content Include="Views\Categories\Diversity.cshtml" />
+    <Content Include="Views\Categories\Jobs.cshtml" />
+    <Content Include="Views\Categories\Legal.cshtml" />
+    <Content Include="Views\Categories\Family.cshtml" />
+    <Content Include="Views\Location\Woden.cshtml" />
+    <Content Include="Views\Location\Tuggeranong.cshtml" />
+    <Content Include="Views\Location\Civic.cshtml" />
+    <Content Include="Views\Location\Gungahlin.cshtml" />
     <Content Include="Views\Home\Interstate.cshtml" />
     <Content Include="Views\Home\GMapsAPITest.cshtml" />
+    <Content Include="Views\Services\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Views\ServiceMarker\" />
-    <Folder Include="Views\Stores\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />

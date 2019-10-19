@@ -1,0 +1,195 @@
+﻿@model IEnumerable<ACTYouthServicesWeb.Models.Service>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Services in database</h2>
+
+<button class=" btn-toolbar">
+    <img class="textIcon" src="~/Content/img/icons/addService.png" alt="a blakc and white addition symbol" />
+
+    @Html.ActionLink("Add a new service", "Create")
+</button>
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Description)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Phone)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Address)
+        </th>
+        <!--
+    <th>
+        @Html.DisplayNameFor(model => model.Longitude)
+    </th>
+    <th>
+        @Html.DisplayNameFor(model => model.Latitude)
+    </th>
+    -->
+
+        <th>
+            @Html.DisplayNameFor(model => model.Email)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.OpeningHours)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Location)
+        </th>
+        <!---
+    <th>
+        @Html.DisplayNameFor(model => model.Shelter)
+    </th>
+    <th>
+        @Html.DisplayNameFor(model => model.Food)
+    </th>
+    <th>
+        @Html.DisplayNameFor(model => model.Job)
+    </th>
+    <th>
+        @Html.DisplayNameFor(model => model.Family)
+    </th>
+    <th>
+        @Html.DisplayNameFor(model => model.Legal)
+    </th>
+    <th>
+        @Html.DisplayNameFor(model => model.Diversity)
+    </th>
+    <th>
+        @Html.DisplayNameFor(model => model.Health)
+    </th>
+    <th>
+        @Html.DisplayNameFor(model => model.Location)
+    </th>
+    <th>
+        @Html.DisplayNameFor(model => model.Accessability)
+    </th>
+    <th>
+        @Html.DisplayNameFor(model => model.Clientele)
+    </th>
+    <th>
+        @Html.DisplayNameFor(model => model.Referral)
+    </th>
+    <th>
+        @Html.DisplayNameFor(model => model.MinAge)
+    </th>
+    <th>
+        @Html.DisplayNameFor(model => model.MaxAge)
+    </th>
+    <th>
+        @Html.DisplayNameFor(model => model.Cost)
+    </th>
+    <th>
+        @Html.DisplayNameFor(model => model.Languages)
+    </th>
+    <th>
+        @Html.DisplayNameFor(model => model.Website)
+    </th>
+    -->
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Name)
+        </td>
+        <td class="serviceDescriptionTable">
+            @Html.DisplayFor(modelItem => item.Description)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Phone)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Address)
+        </td>
+        <!--
+    <td>
+        @Html.DisplayFor(modelItem => item.Longitude)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.Latitude)
+    </td>
+    -->
+        <td>
+            @Html.DisplayFor(modelItem => item.Email)
+        </td>
+        <td class="serviceHoursTable">
+            @Html.DisplayFor(modelItem => item.OpeningHours)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Location)
+        </td>
+        <!--
+    <td>
+        @Html.DisplayFor(modelItem => item.Shelter)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.Food)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.Job)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.Family)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.Legal)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.Diversity)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.Health)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.Location)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.Accessability)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.Clientele)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.Referral)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.MinAge)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.MaxAge)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.Cost)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.Languages)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.Website)
+    </td>
+    -->
+        <td>
+            <!--
+        @Html.ActionLink("Edit", "Edit", new { id=item.ServiceID })
+        @Html.ActionLink("Details", "Details", new { id=item.ServiceID })
+        @Html.ActionLink("Delete", "Delete", new { id=item.ServiceID })
+        -->
+            <a href="~/Admin/Edit/@Html.DisplayFor(Model => item.ServiceID)">Edit</a>
+            <a href="~/Admin/Delete/@Html.DisplayFor(Model => item.ServiceID)">Delete</a>
+            <a href="~/Services/Details/@Html.DisplayFor(Model => item.ServiceID)">Details</a>
+        </td>
+    </tr>
+    }
+
+</table>

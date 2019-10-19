@@ -1,0 +1,293 @@
+﻿@model IEnumerable<ACTYouthServicesWeb.Models.Service>
+@{
+    ViewBag.Title = "Health";
+}
+<!--embed analytics-->
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-147750347-1"></script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag('js', new Date());
+
+    gtag('config', 'UA-147750347-1');
+</script>
+<!--start content-->
+
+<h2>Health and Wellbeing services</h2>
+<p>Services in this category can help young people to cater to their health needs, both mental and physical, and promote wellbeing.</p>
+<hr />
+<!--Script for map-->
+<script>
+    // Note: This example requires that you consent to location sharing when
+    // prompted by your browser. If you see the error "The Geolocation service
+    // failed.", it means you probably did not give permission for the browser to
+    // locate you.
+    //alert("line 25");
+
+    var map, infoWindow;
+    function initMap() {
+        map = new google.maps.Map(document.getElementById('map'), {
+            /*center map on canberra CBD, until geolocation finds users location and shifts map focus there.*/
+            center: { lat: -35.282110, lng: 149.128770 },
+            zoom: 14
+        });
+        /*create marker for services*/
+        var locations = [
+            /*original- leave in case needed later*/
+            /*
+            ['Belconnen Community Service', -35.238719, 149.070135],
+            ['Bit Bent - Gender Diverse Support', -35.238719, 149.070170, 2],
+            ['Headspace Canberra', -35.275761, 149.133438, 3],
+            ['Barnados Canberra', -35.243746, 149.142245, 4],
+            ['Legal Aid ACT - Youth Law Centre', -35.278411, 149.124878, 3],
+            ['Multi-Cultural Youth Services', -35.28028, 149.130915, 3]
+            */
+            //adapted from a CSV of services database XLS, with only columns needed
+            ['Belconnen Community Service', -35.238719, 149.070135],
+            ['Bit Bent - Gender Diverse Support', -35.238719, 149.070170],
+            ['Headspace Canberra', -35.275761, 149.133438],
+            ['Barnados Canberra', -35.243746, 149.142245],
+            ['Multi - Cultural Youth Services', -35.28028, 149.130915],
+            ['Anglicare Club 12 25', -35.277106, 149.134528],
+            ['Anglicare - Junction Youth Health Service', -35.277106, 149.134528],
+            ['Anglicare - Youth Education Program', -35.277106, 149.134528],
+            ['Mary Mead KAYAKS program', -35.309709, 149.10427],
+            ['YouthCare Canberra', -35.288003, 149.140181],
+            ['Youth Step Up Step Down Program', -35.342942, 149.088914],
+            ['Woden Community Service', -35.345286, 149.083472],
+            ['CatholicCare - Youth Housing Support Service', -35.339137, 149.129494],
+            ['catholicCare - Youth Reaching Out', -35.339137, 149.129494],
+            ['Canberra PCYC', -35.402481, 149.098201],
+            ['Early Morning Centre', -35.276483, 149.129038],
+            ['Pets in the Park', -35.275929, 149.12916],
+            ['Conflict Resolution Service Family Tree House Program', -35.276922, 149.13252],
+            ['ACT Street Soccer', -35.281382, 149.144601],
+            ['The Ted Noffs Foundation', -35.238293, 149.167199],
+            ['The Big Issue', -35.34513, 149.083476],
+            ['CatholicCare Reconnect', -35.339146, 149.129462],
+            ['EveryMan Australia', -35.276723, 149.132352],
+            ['Orange Sky Laundry', -35.281162, 149.129714],
+            ['Street To Home(Saint Vincent De Paul)', -35.319376, 149.101047],
+            ['Young Parents Program(Saint Vincent De Paul)', -35.319376, 149.101047],
+            ['Night Patrol(Saint Vincent De Paul)', -35.317388, 149.097659],
+            ['Leslys Place (Toora Womens Inc)', -35.253079, 149.071059],
+            ['Toora Womens Incorporated', -35.279831, 149.127826],
+            ['Beryl Womens Inc - Crisis Accomodation', -35.301985, 149.115733],
+            ['Comnig Home - Toora Womens Inc', -35.281723, 149.127397],
+            ['Centrelink / Medicare Belconnen', -35.237758, 149.068865],
+            ['Centrelink / Medicare Woden', -35.341723, 149.085639],
+            ['Centrelink / Medicare Gungahlin', -35.185274, 149.134368],
+            ['Centrelink / Medicare Braddon', -35.273963, 149.132565],
+            ['Centrelink / Medicare Tuggeranong', -35.418912, 149.070288],
+            ['Family Therapy - Strategic Psychology', -35.279265, 149.129611]
+
+        ];
+        //alert("line 100");
+
+
+        var infowindow = new google.maps.InfoWindow;
+
+        var marker, i;
+
+        for (i = 0; i < locations.length; i++) {
+            marker = new google.maps.Marker({
+                position: new google.maps.LatLng(locations[i][1], locations[i][2]),
+                map: map
+            });
+
+            google.maps.event.addListener(marker, 'click', (function (marker, i) {
+                return function () {
+                    infowindow.setContent(
+                        '<a href="/Services/Index/?name=' + locations[i][0] + '" class="tile-button">' + locations[i][0] + '</a>');
+                    infowindow.open(map, marker);
+                }
+            })(marker, i));
+        }
+        //alert("line 125");
+
+
+
+        // Try HTML5 geolocation.
+        if (navigator.geolocation) {
+            navigator.geolocation.getCurrentPosition(function (position) {
+                /*If user is interstate, ask them if they want to go to interstate page*/
+
+
+                var pos = {
+                    lat: position.coords.latitude,
+                    lng: position.coords.longitude
+                };
+
+                if (position.coords.longitude > 149.3) {
+                    if (window.confirm("It appears you are visiting the website from outside of the ACT. Click OK to go to the relevant directory for your state or territory, or click Cancel to stay on this page.")) {
+                        window.location.href = "/Home/Interstate";
+                    }
+                };
+                if (position.coords.longitude < 148.80) {
+                    if (window.confirm("It appears you are visiting the website from outside of the ACT. Click OK to go to the relevant directory for your state or territory, or click Cancel to stay on this page.")) {
+                        window.location.href = "/Home/Interstate";
+                    }
+                };
+                //alert("line 150");
+                /*redirect if more than 0.5 degrees from Canberra CBD(-35.282110)*/
+                if (position.coords.latitude < (-35.782110)) {
+                    if (window.confirm("It appears you are visiting the website from outside of the ACT. Click OK to go to the relevant directory for your state or territory, or click Cancel to stay on this page.")) {
+                        window.location.href = "/Home/Interstate";
+                    }
+                };
+                /*redirect if more than 0.5 degrees from Canberra CBD(-35.28110)*/
+                if (position.coords.latitude > (-34.782110)) {
+                    if (window.confirm("It appears you are visiting the website from outside of the ACT. Click OK to go to the relevant directory for your state or territory, or click Cancel to stay on this page.")) {
+                        window.location.href = "/Home/Interstate";
+                    }
+                };
+
+                /*set infowindow on user location*/
+                infoWindow = new google.maps.InfoWindow;
+                infoWindow.setPosition(pos);
+                infoWindow.setContent('You are here.');
+                infoWindow.open(map);
+                map.setCenter(pos);
+                /*set inputs below map to match coords of users location*/
+
+            }, function () {
+                handleLocationError(true, infoWindow, map.getCenter());
+
+            });
+        } else {
+            // Browser doesn't support Geolocation
+            handleLocationError(false, infoWindow, map.getCenter());
+        }
+    }
+
+    function handleLocationError(browserHasGeolocation, infoWindow, pos) {
+        infoWindow.setPosition(pos);
+        infoWindow.setContent(browserHasGeolocation ?
+            'Error: The Geolocation service failed.' :
+            'Error: Your browser doesn\'t support geolocation.');
+        infoWindow.open(map);
+    }
+
+
+
+
+    //alert("line 200");
+    /*display the coordinates in "inputs" beneath map*/
+    /*
+
+
+    /*
+
+    var marker = new google.maps.Marker({ position: center });
+    /*create bound of radius for 0.1 degree radius*/
+    /*
+    var limitEast = (coordinates.longitudee - (0.1));
+    var limitWest = (coordinates.longitude - (0.1));
+    var limtNorth = (coordinates.latitude - (0.1));
+    var limitSouth = (coordinates.latitude - (0.1));
+    */
+
+
+
+</script>
+<!--map div-->
+<div class="servicesMap" id="map"></div>
+<p class="mapCaption">*Please note that for services where the location is to be kept private, such as refuges and shelters, the location given is only approximate, and contact should be made with the service or <a href="https://onelink.org.au/">OneLink</a>, to get a referral.</p>
+
+<hr />
+<!--Link API key for google maps API-->
+<script async defer
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDXq96VjA3ovASTp9u95xIFoNifTgSZWFk&callback=initMap">
+</script>
+<div class="filters">
+    <h3>Filter Results</h3>
+    <hr />
+    <h4>Search</h4>
+    <!--search bar to find service by search term-->
+    @using (Html.BeginForm())
+    {
+        <div>
+            <p class="SearchBox">Search for a service @Html.TextBox("SearchString")</p>
+        </div>
+    <hr />
+    <h4>Location</h4>
+
+        /*checkboxes*/
+        <p>@Html.CheckBox("Belconnen") Belconnen</p>
+        <p>@Html.CheckBox("Tuggeranong") Tuggeranong</p>
+        <p>@Html.CheckBox("Woden") Woden</p>
+        <p>@Html.CheckBox("Gungahlin") Gunghalin</p>
+        <p>@Html.CheckBox("Civic") Civic</p>
+        /*button to submit*/
+        <hr />
+        <input class="inputButton" type="submit" value="Find Services" name="CHKShelter" />
+    }
+</div>
+<div class="results">
+    @foreach (var item in Model.Where(model => model.Health == true))
+    {
+        <div class="card">
+            <div class="card-body">
+                <!--Show shelter icon for service if true-->
+                @if (item.Shelter == true)
+                {
+                    <a href="~/Home/Shelter">
+                        <img class="multiIcon" src="~/Content/img/shelterIcon.png" alt="a small black and white icon depiciting a basic house." />
+                    </a>
+                }
+                <!--Show Food icon for service if true-->
+                @if (item.Food == true)
+                {
+                    <a href="~/Home/Meals">
+                        <img class="multiIcon" src="~/Content/img/mealsfoodicon.png" alt="a small black and white icon depiciting a basic house." />
+                    </a>
+                }
+                <!--Show shelter icon for service if true-->
+                @if (item.Diversity == true)
+                {
+                    <a href="~/Home/Diversity">
+                        <img class="multiIcon" src="~/Content/img/diversityinclusion.png" alt="a small black and white icon depiciting a basic house." />
+                    </a>
+                }
+                <!--Show shelter icon for service if true-->
+                @if (item.Job == true)
+                {
+                    <a href="~/Home/Jobs">
+                        <img class="multiIcon" src="~/Content/img/jobsemployment.png" alt="a small black and white icon depiciting a basic house." />
+                    </a>
+                }
+                <!--Show shelter icon for service if true-->
+                @if (item.Legal == true)
+                {
+                    <a href="~/Home/Legal">
+                        <img class="multiIcon" src="~/Content/img/legalfinancialicon.png" alt="a small black and white icon depiciting a basic house." />
+                    </a>
+                }
+                <!--Show shelter icon for service if true-->
+                @if (item.Family == true)
+                {
+                    <a href="~/Home/Family">
+                        <img class="multiIcon" src="~/Content/img/familycommunity.png" alt="a small black and white icon depiciting a basic house." />
+                    </a>
+                }
+                <!--Show shelter icon for service if true-->
+                @if (item.Health == true)
+                {
+                    <a href="~/Home/Health">
+                        <img class="multiIcon" src="~/Content/img/healthwellbeing.png" alt="a small black and white icon depiciting a basic house." />
+                    </a>
+                }
+                <!--Show Name as title and below this show the description of the service-->
+                <h3 class="card-title">@Html.DisplayFor(modelItem => item.Name)</h3>
+                <p class="card-text">@Html.DisplayFor(modelitem => item.Description)</p>
+                <!--
+    <h4>@Html.DisplayNameFor(model => model.Phone): @Html.DisplayFor(modelItem => item.Phone)</h4>
+    <h4>@Html.DisplayNameFor(model => model.Location): @Html.DisplayFor(modelItem => item.Location)</h4>
+    -->
+            </div>
+            <a href="~/Home/Details/@Html.DisplayFor(modelItem => item.ServiceID)" class="btn btn-primary btn-block">@Html.DisplayFor(ModelItem => item.Name)'s page </a>
+        </div>
+    }
+
+</div>
